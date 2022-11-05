@@ -4,13 +4,13 @@ All URIs are relative to */api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**instances_instance_key_misc_profile_pic_get**](MiscellaneousApi.md#instances_instance_key_misc_profile_pic_get) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic. |
-| [**instances_instance_key_misc_user_info_post**](MiscellaneousApi.md#instances_instance_key_misc_user_info_post) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info. |
+| [**get_profile_pic**](MiscellaneousApi.md#get_profile_pic) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic. |
+| [**get_users_info**](MiscellaneousApi.md#get_users_info) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info. |
 
 
-## instances_instance_key_misc_profile_pic_get
+## get_profile_pic
 
-> <APIResponse> instances_instance_key_misc_profile_pic_get(instance_key, jid)
+> <APIResponse> get_profile_pic(instance_key, jid)
 
 Get profile pic.
 
@@ -35,28 +35,28 @@ jid = 'jid_example' # String | JID
 
 begin
   # Get profile pic.
-  result = api_instance.instances_instance_key_misc_profile_pic_get(instance_key, jid)
+  result = api_instance.get_profile_pic(instance_key, jid)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Error when calling MiscellaneousApi->instances_instance_key_misc_profile_pic_get: #{e}"
+  puts "Error when calling MiscellaneousApi->get_profile_pic: #{e}"
 end
 ```
 
-#### Using the instances_instance_key_misc_profile_pic_get_with_http_info variant
+#### Using the get_profile_pic_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_misc_profile_pic_get_with_http_info(instance_key, jid)
+> <Array(<APIResponse>, Integer, Hash)> get_profile_pic_with_http_info(instance_key, jid)
 
 ```ruby
 begin
   # Get profile pic.
-  data, status_code, headers = api_instance.instances_instance_key_misc_profile_pic_get_with_http_info(instance_key, jid)
+  data, status_code, headers = api_instance.get_profile_pic_with_http_info(instance_key, jid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
-  puts "Error when calling MiscellaneousApi->instances_instance_key_misc_profile_pic_get_with_http_info: #{e}"
+  puts "Error when calling MiscellaneousApi->get_profile_pic_with_http_info: #{e}"
 end
 ```
 
@@ -81,9 +81,9 @@ end
 - **Accept**: */*
 
 
-## instances_instance_key_misc_user_info_post
+## get_users_info
 
-> <APIResponse> instances_instance_key_misc_user_info_post(instance_key, data)
+> <APIResponse> get_users_info(instance_key, data)
 
 Fetches the users info.
 
@@ -108,28 +108,28 @@ data = OpenapiClient::UserInfoPayload.new({user_ids: ['user_ids_example']}) # Us
 
 begin
   # Fetches the users info.
-  result = api_instance.instances_instance_key_misc_user_info_post(instance_key, data)
+  result = api_instance.get_users_info(instance_key, data)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Error when calling MiscellaneousApi->instances_instance_key_misc_user_info_post: #{e}"
+  puts "Error when calling MiscellaneousApi->get_users_info: #{e}"
 end
 ```
 
-#### Using the instances_instance_key_misc_user_info_post_with_http_info variant
+#### Using the get_users_info_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_misc_user_info_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> get_users_info_with_http_info(instance_key, data)
 
 ```ruby
 begin
   # Fetches the users info.
-  data, status_code, headers = api_instance.instances_instance_key_misc_user_info_post_with_http_info(instance_key, data)
+  data, status_code, headers = api_instance.get_users_info_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
-  puts "Error when calling MiscellaneousApi->instances_instance_key_misc_user_info_post_with_http_info: #{e}"
+  puts "Error when calling MiscellaneousApi->get_users_info_with_http_info: #{e}"
 end
 ```
 

@@ -24,8 +24,8 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_business_catalog_get(instance_key, opts = {})
-      data, _status_code, _headers = instances_instance_key_business_catalog_get_with_http_info(instance_key, opts)
+    def fetch_catlog(instance_key, opts = {})
+      data, _status_code, _headers = fetch_catlog_with_http_info(instance_key, opts)
       data
     end
 
@@ -34,13 +34,13 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_business_catalog_get_with_http_info(instance_key, opts = {})
+    def fetch_catlog_with_http_info(instance_key, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BusinessManagementApi.instances_instance_key_business_catalog_get ...'
+        @api_client.config.logger.debug 'Calling API: BusinessManagementApi.fetch_catlog ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling BusinessManagementApi.instances_instance_key_business_catalog_get"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling BusinessManagementApi.fetch_catlog"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/business/catalog'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -66,7 +66,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"BusinessManagementApi.instances_instance_key_business_catalog_get",
+        :operation => :"BusinessManagementApi.fetch_catlog",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -77,7 +77,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BusinessManagementApi#instances_instance_key_business_catalog_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BusinessManagementApi#fetch_catlog\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

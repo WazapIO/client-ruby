@@ -23,12 +23,12 @@ module OpenapiClient
     # Sends a audio message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
     # @param instance_key [String] Instance key
     # @param to [String] The recipient&#39;s number
-    # @param instances_instance_key_send_audio_post_request [InstancesInstanceKeySendAudioPostRequest] 
+    # @param send_audio_request [SendAudioRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
     # @return [APIResponse]
-    def instances_instance_key_send_audio_post(instance_key, to, instances_instance_key_send_audio_post_request, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_audio_post_with_http_info(instance_key, to, instances_instance_key_send_audio_post_request, opts)
+    def send_audio(instance_key, to, send_audio_request, opts = {})
+      data, _status_code, _headers = send_audio_with_http_info(instance_key, to, send_audio_request, opts)
       data
     end
 
@@ -36,25 +36,25 @@ module OpenapiClient
     # Sends a audio message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
     # @param instance_key [String] Instance key
     # @param to [String] The recipient&#39;s number
-    # @param instances_instance_key_send_audio_post_request [InstancesInstanceKeySendAudioPostRequest] 
+    # @param send_audio_request [SendAudioRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_audio_post_with_http_info(instance_key, to, instances_instance_key_send_audio_post_request, opts = {})
+    def send_audio_with_http_info(instance_key, to, send_audio_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_audio_post ...'
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_audio ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_audio_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_audio"
       end
       # verify the required parameter 'to' is set
       if @api_client.config.client_side_validation && to.nil?
-        fail ArgumentError, "Missing the required parameter 'to' when calling MessageSendingApi.instances_instance_key_send_audio_post"
+        fail ArgumentError, "Missing the required parameter 'to' when calling MessageSendingApi.send_audio"
       end
-      # verify the required parameter 'instances_instance_key_send_audio_post_request' is set
-      if @api_client.config.client_side_validation && instances_instance_key_send_audio_post_request.nil?
-        fail ArgumentError, "Missing the required parameter 'instances_instance_key_send_audio_post_request' when calling MessageSendingApi.instances_instance_key_send_audio_post"
+      # verify the required parameter 'send_audio_request' is set
+      if @api_client.config.client_side_validation && send_audio_request.nil?
+        fail ArgumentError, "Missing the required parameter 'send_audio_request' when calling MessageSendingApi.send_audio"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/audio'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -78,7 +78,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(instances_instance_key_send_audio_post_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(send_audio_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'APIResponse'
@@ -87,7 +87,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_audio_post",
+        :operation => :"MessageSendingApi.send_audio",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -98,81 +98,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_audio_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Send a button message with a media header.
-    # Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
-    # @param instance_key [String] Instance key
-    # @param data [ButtonMessageWithMediaPayload] Message data
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_send_button_media_post(instance_key, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_button_media_post_with_http_info(instance_key, data, opts)
-      data
-    end
-
-    # Send a button message with a media header.
-    # Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
-    # @param instance_key [String] Instance key
-    # @param data [ButtonMessageWithMediaPayload] Message data
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_button_media_post_with_http_info(instance_key, data, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_button_media_post ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_button_media_post"
-      end
-      # verify the required parameter 'data' is set
-      if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.instances_instance_key_send_button_media_post"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/send/button-media'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_button_media_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_button_media_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_audio\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -183,8 +109,8 @@ module OpenapiClient
     # @param data [ButtonMessagePayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_send_buttons_post(instance_key, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_buttons_post_with_http_info(instance_key, data, opts)
+    def send_button_message(instance_key, data, opts = {})
+      data, _status_code, _headers = send_button_message_with_http_info(instance_key, data, opts)
       data
     end
 
@@ -194,17 +120,17 @@ module OpenapiClient
     # @param data [ButtonMessagePayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_buttons_post_with_http_info(instance_key, data, opts = {})
+    def send_button_message_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_buttons_post ...'
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_button_message ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_buttons_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_button_message"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.instances_instance_key_send_buttons_post"
+        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.send_button_message"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/buttons'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -235,7 +161,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_buttons_post",
+        :operation => :"MessageSendingApi.send_button_message",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -246,7 +172,81 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_buttons_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_button_message\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Send a button message with a media header.
+    # Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
+    # @param instance_key [String] Instance key
+    # @param data [ButtonMessageWithMediaPayload] Message data
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def send_button_with_media(instance_key, data, opts = {})
+      data, _status_code, _headers = send_button_with_media_with_http_info(instance_key, data, opts)
+      data
+    end
+
+    # Send a button message with a media header.
+    # Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
+    # @param instance_key [String] Instance key
+    # @param data [ButtonMessageWithMediaPayload] Message data
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def send_button_with_media_with_http_info(instance_key, data, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_button_with_media ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_button_with_media"
+      end
+      # verify the required parameter 'data' is set
+      if @api_client.config.client_side_validation && data.nil?
+        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.send_button_with_media"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/send/button-media'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"MessageSendingApi.send_button_with_media",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_button_with_media\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -257,8 +257,8 @@ module OpenapiClient
     # @param data [ContactMessagePayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_send_contact_post(instance_key, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_contact_post_with_http_info(instance_key, data, opts)
+    def send_contact(instance_key, data, opts = {})
+      data, _status_code, _headers = send_contact_with_http_info(instance_key, data, opts)
       data
     end
 
@@ -268,17 +268,17 @@ module OpenapiClient
     # @param data [ContactMessagePayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_contact_post_with_http_info(instance_key, data, opts = {})
+    def send_contact_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_contact_post ...'
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_contact ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_contact_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_contact"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.instances_instance_key_send_contact_post"
+        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.send_contact"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/contact'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -309,7 +309,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_contact_post",
+        :operation => :"MessageSendingApi.send_contact",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -320,7 +320,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_contact_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_contact\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -329,12 +329,12 @@ module OpenapiClient
     # Sends a document message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
     # @param instance_key [String] Instance key
     # @param to [String] The recipient&#39;s number
-    # @param instances_instance_key_send_document_post_request [InstancesInstanceKeySendDocumentPostRequest] 
+    # @param send_document_request [SendDocumentRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
     # @return [APIResponse]
-    def instances_instance_key_send_document_post(instance_key, to, instances_instance_key_send_document_post_request, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_document_post_with_http_info(instance_key, to, instances_instance_key_send_document_post_request, opts)
+    def send_document(instance_key, to, send_document_request, opts = {})
+      data, _status_code, _headers = send_document_with_http_info(instance_key, to, send_document_request, opts)
       data
     end
 
@@ -342,25 +342,25 @@ module OpenapiClient
     # Sends a document message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
     # @param instance_key [String] Instance key
     # @param to [String] The recipient&#39;s number
-    # @param instances_instance_key_send_document_post_request [InstancesInstanceKeySendDocumentPostRequest] 
+    # @param send_document_request [SendDocumentRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_document_post_with_http_info(instance_key, to, instances_instance_key_send_document_post_request, opts = {})
+    def send_document_with_http_info(instance_key, to, send_document_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_document_post ...'
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_document ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_document_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_document"
       end
       # verify the required parameter 'to' is set
       if @api_client.config.client_side_validation && to.nil?
-        fail ArgumentError, "Missing the required parameter 'to' when calling MessageSendingApi.instances_instance_key_send_document_post"
+        fail ArgumentError, "Missing the required parameter 'to' when calling MessageSendingApi.send_document"
       end
-      # verify the required parameter 'instances_instance_key_send_document_post_request' is set
-      if @api_client.config.client_side_validation && instances_instance_key_send_document_post_request.nil?
-        fail ArgumentError, "Missing the required parameter 'instances_instance_key_send_document_post_request' when calling MessageSendingApi.instances_instance_key_send_document_post"
+      # verify the required parameter 'send_document_request' is set
+      if @api_client.config.client_side_validation && send_document_request.nil?
+        fail ArgumentError, "Missing the required parameter 'send_document_request' when calling MessageSendingApi.send_document"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/document'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -384,7 +384,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(instances_instance_key_send_document_post_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(send_document_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'APIResponse'
@@ -393,7 +393,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_document_post",
+        :operation => :"MessageSendingApi.send_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -404,7 +404,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_document_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -413,12 +413,12 @@ module OpenapiClient
     # Sends a image message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
     # @param instance_key [String] Instance key
     # @param to [String] The recipient&#39;s number
-    # @param instances_instance_key_send_image_post_request [InstancesInstanceKeySendImagePostRequest] 
+    # @param send_image_request [SendImageRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
     # @return [APIResponse]
-    def instances_instance_key_send_image_post(instance_key, to, instances_instance_key_send_image_post_request, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_image_post_with_http_info(instance_key, to, instances_instance_key_send_image_post_request, opts)
+    def send_image(instance_key, to, send_image_request, opts = {})
+      data, _status_code, _headers = send_image_with_http_info(instance_key, to, send_image_request, opts)
       data
     end
 
@@ -426,25 +426,25 @@ module OpenapiClient
     # Sends a image message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
     # @param instance_key [String] Instance key
     # @param to [String] The recipient&#39;s number
-    # @param instances_instance_key_send_image_post_request [InstancesInstanceKeySendImagePostRequest] 
+    # @param send_image_request [SendImageRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_image_post_with_http_info(instance_key, to, instances_instance_key_send_image_post_request, opts = {})
+    def send_image_with_http_info(instance_key, to, send_image_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_image_post ...'
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_image ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_image_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_image"
       end
       # verify the required parameter 'to' is set
       if @api_client.config.client_side_validation && to.nil?
-        fail ArgumentError, "Missing the required parameter 'to' when calling MessageSendingApi.instances_instance_key_send_image_post"
+        fail ArgumentError, "Missing the required parameter 'to' when calling MessageSendingApi.send_image"
       end
-      # verify the required parameter 'instances_instance_key_send_image_post_request' is set
-      if @api_client.config.client_side_validation && instances_instance_key_send_image_post_request.nil?
-        fail ArgumentError, "Missing the required parameter 'instances_instance_key_send_image_post_request' when calling MessageSendingApi.instances_instance_key_send_image_post"
+      # verify the required parameter 'send_image_request' is set
+      if @api_client.config.client_side_validation && send_image_request.nil?
+        fail ArgumentError, "Missing the required parameter 'send_image_request' when calling MessageSendingApi.send_image"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/image'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -468,7 +468,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(instances_instance_key_send_image_post_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(send_image_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'APIResponse'
@@ -477,7 +477,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_image_post",
+        :operation => :"MessageSendingApi.send_image",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -488,7 +488,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_image_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_image\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -499,8 +499,8 @@ module OpenapiClient
     # @param data [ListMessagePayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_send_list_post(instance_key, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_list_post_with_http_info(instance_key, data, opts)
+    def send_list_message(instance_key, data, opts = {})
+      data, _status_code, _headers = send_list_message_with_http_info(instance_key, data, opts)
       data
     end
 
@@ -510,17 +510,17 @@ module OpenapiClient
     # @param data [ListMessagePayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_list_post_with_http_info(instance_key, data, opts = {})
+    def send_list_message_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_list_post ...'
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_list_message ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_list_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_list_message"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.instances_instance_key_send_list_post"
+        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.send_list_message"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/list'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -551,7 +551,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_list_post",
+        :operation => :"MessageSendingApi.send_list_message",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -562,7 +562,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_list_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_list_message\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -573,8 +573,8 @@ module OpenapiClient
     # @param data [LocationMessagePayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_send_location_post(instance_key, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_location_post_with_http_info(instance_key, data, opts)
+    def send_location(instance_key, data, opts = {})
+      data, _status_code, _headers = send_location_with_http_info(instance_key, data, opts)
       data
     end
 
@@ -584,17 +584,17 @@ module OpenapiClient
     # @param data [LocationMessagePayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_location_post_with_http_info(instance_key, data, opts = {})
+    def send_location_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_location_post ...'
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_location ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_location_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_location"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.instances_instance_key_send_location_post"
+        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.send_location"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/location'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -625,7 +625,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_location_post",
+        :operation => :"MessageSendingApi.send_location",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -636,7 +636,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_location_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_location\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -647,8 +647,8 @@ module OpenapiClient
     # @param data [SendMediaPayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_send_media_post(instance_key, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_media_post_with_http_info(instance_key, data, opts)
+    def send_media_message(instance_key, data, opts = {})
+      data, _status_code, _headers = send_media_message_with_http_info(instance_key, data, opts)
       data
     end
 
@@ -658,17 +658,17 @@ module OpenapiClient
     # @param data [SendMediaPayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_media_post_with_http_info(instance_key, data, opts = {})
+    def send_media_message_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_media_post ...'
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_media_message ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_media_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_media_message"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.instances_instance_key_send_media_post"
+        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.send_media_message"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/media'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -699,7 +699,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_media_post",
+        :operation => :"MessageSendingApi.send_media_message",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -710,7 +710,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_media_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_media_message\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -721,8 +721,8 @@ module OpenapiClient
     # @param data [PollMessagePayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_send_poll_post(instance_key, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_poll_post_with_http_info(instance_key, data, opts)
+    def send_poll_message(instance_key, data, opts = {})
+      data, _status_code, _headers = send_poll_message_with_http_info(instance_key, data, opts)
       data
     end
 
@@ -732,17 +732,17 @@ module OpenapiClient
     # @param data [PollMessagePayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_poll_post_with_http_info(instance_key, data, opts = {})
+    def send_poll_message_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_poll_post ...'
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_poll_message ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_poll_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_poll_message"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.instances_instance_key_send_poll_post"
+        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.send_poll_message"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/poll'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -773,7 +773,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_poll_post",
+        :operation => :"MessageSendingApi.send_poll_message",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -784,81 +784,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_poll_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Send a template message with media.
-    # Sends an interactive template message with a media header to the given user. Note: The valid button types are \"replyButton\", \"urlButton\", \"callButton\"
-    # @param instance_key [String] Instance key
-    # @param data [TemplateButtonWithMediaPayload] Message data
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_send_template_media_post(instance_key, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_template_media_post_with_http_info(instance_key, data, opts)
-      data
-    end
-
-    # Send a template message with media.
-    # Sends an interactive template message with a media header to the given user. Note: The valid button types are \&quot;replyButton\&quot;, \&quot;urlButton\&quot;, \&quot;callButton\&quot;
-    # @param instance_key [String] Instance key
-    # @param data [TemplateButtonWithMediaPayload] Message data
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_template_media_post_with_http_info(instance_key, data, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_template_media_post ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_template_media_post"
-      end
-      # verify the required parameter 'data' is set
-      if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.instances_instance_key_send_template_media_post"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/send/template-media'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_template_media_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_template_media_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_poll_message\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -869,8 +795,8 @@ module OpenapiClient
     # @param data [TemplateButtonPayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_send_template_post(instance_key, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_template_post_with_http_info(instance_key, data, opts)
+    def send_template(instance_key, data, opts = {})
+      data, _status_code, _headers = send_template_with_http_info(instance_key, data, opts)
       data
     end
 
@@ -880,17 +806,17 @@ module OpenapiClient
     # @param data [TemplateButtonPayload] Message data
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_template_post_with_http_info(instance_key, data, opts = {})
+    def send_template_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_template_post ...'
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_template ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_template_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_template"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.instances_instance_key_send_template_post"
+        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.send_template"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/template'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -921,7 +847,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_template_post",
+        :operation => :"MessageSendingApi.send_template",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -932,7 +858,81 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_template_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Send a template message with media.
+    # Sends an interactive template message with a media header to the given user. Note: The valid button types are \"replyButton\", \"urlButton\", \"callButton\"
+    # @param instance_key [String] Instance key
+    # @param data [TemplateButtonWithMediaPayload] Message data
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def send_template_with_media(instance_key, data, opts = {})
+      data, _status_code, _headers = send_template_with_media_with_http_info(instance_key, data, opts)
+      data
+    end
+
+    # Send a template message with media.
+    # Sends an interactive template message with a media header to the given user. Note: The valid button types are \&quot;replyButton\&quot;, \&quot;urlButton\&quot;, \&quot;callButton\&quot;
+    # @param instance_key [String] Instance key
+    # @param data [TemplateButtonWithMediaPayload] Message data
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def send_template_with_media_with_http_info(instance_key, data, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_template_with_media ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_template_with_media"
+      end
+      # verify the required parameter 'data' is set
+      if @api_client.config.client_side_validation && data.nil?
+        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.send_template_with_media"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/send/template-media'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"MessageSendingApi.send_template_with_media",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_template_with_media\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -943,8 +943,8 @@ module OpenapiClient
     # @param data [TextMessage] Message data
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_send_text_post(instance_key, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_text_post_with_http_info(instance_key, data, opts)
+    def send_text_message(instance_key, data, opts = {})
+      data, _status_code, _headers = send_text_message_with_http_info(instance_key, data, opts)
       data
     end
 
@@ -954,17 +954,17 @@ module OpenapiClient
     # @param data [TextMessage] Message data
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_text_post_with_http_info(instance_key, data, opts = {})
+    def send_text_message_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_text_post ...'
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_text_message ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_text_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_text_message"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.instances_instance_key_send_text_post"
+        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.send_text_message"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/text'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -995,7 +995,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_text_post",
+        :operation => :"MessageSendingApi.send_text_message",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1006,93 +1006,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_text_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Upload media.
-    # Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
-    # @param instance_key [String] Instance key
-    # @param type [String] Media type
-    # @param instances_instance_key_send_upload_post_request [InstancesInstanceKeySendUploadPostRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_send_upload_post(instance_key, type, instances_instance_key_send_upload_post_request, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_upload_post_with_http_info(instance_key, type, instances_instance_key_send_upload_post_request, opts)
-      data
-    end
-
-    # Upload media.
-    # Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
-    # @param instance_key [String] Instance key
-    # @param type [String] Media type
-    # @param instances_instance_key_send_upload_post_request [InstancesInstanceKeySendUploadPostRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_upload_post_with_http_info(instance_key, type, instances_instance_key_send_upload_post_request, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_upload_post ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_upload_post"
-      end
-      # verify the required parameter 'type' is set
-      if @api_client.config.client_side_validation && type.nil?
-        fail ArgumentError, "Missing the required parameter 'type' when calling MessageSendingApi.instances_instance_key_send_upload_post"
-      end
-      # verify enum value
-      allowable_values = ["image", "video", "audio", "document"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(type)
-        fail ArgumentError, "invalid value for \"type\", must be one of #{allowable_values}"
-      end
-      # verify the required parameter 'instances_instance_key_send_upload_post_request' is set
-      if @api_client.config.client_side_validation && instances_instance_key_send_upload_post_request.nil?
-        fail ArgumentError, "Missing the required parameter 'instances_instance_key_send_upload_post_request' when calling MessageSendingApi.instances_instance_key_send_upload_post"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/send/upload'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'type'] = type
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(instances_instance_key_send_upload_post_request)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_upload_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_upload_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_text_message\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1101,12 +1015,12 @@ module OpenapiClient
     # Sends a video message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
     # @param instance_key [String] Instance key
     # @param to [String] The recipient&#39;s number
-    # @param instances_instance_key_send_video_post_request [InstancesInstanceKeySendVideoPostRequest] 
+    # @param send_video_request [SendVideoRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
     # @return [APIResponse]
-    def instances_instance_key_send_video_post(instance_key, to, instances_instance_key_send_video_post_request, opts = {})
-      data, _status_code, _headers = instances_instance_key_send_video_post_with_http_info(instance_key, to, instances_instance_key_send_video_post_request, opts)
+    def send_video(instance_key, to, send_video_request, opts = {})
+      data, _status_code, _headers = send_video_with_http_info(instance_key, to, send_video_request, opts)
       data
     end
 
@@ -1114,25 +1028,25 @@ module OpenapiClient
     # Sends a video message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
     # @param instance_key [String] Instance key
     # @param to [String] The recipient&#39;s number
-    # @param instances_instance_key_send_video_post_request [InstancesInstanceKeySendVideoPostRequest] 
+    # @param send_video_request [SendVideoRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_send_video_post_with_http_info(instance_key, to, instances_instance_key_send_video_post_request, opts = {})
+    def send_video_with_http_info(instance_key, to, send_video_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_video_post ...'
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_video ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_send_video_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_video"
       end
       # verify the required parameter 'to' is set
       if @api_client.config.client_side_validation && to.nil?
-        fail ArgumentError, "Missing the required parameter 'to' when calling MessageSendingApi.instances_instance_key_send_video_post"
+        fail ArgumentError, "Missing the required parameter 'to' when calling MessageSendingApi.send_video"
       end
-      # verify the required parameter 'instances_instance_key_send_video_post_request' is set
-      if @api_client.config.client_side_validation && instances_instance_key_send_video_post_request.nil?
-        fail ArgumentError, "Missing the required parameter 'instances_instance_key_send_video_post_request' when calling MessageSendingApi.instances_instance_key_send_video_post"
+      # verify the required parameter 'send_video_request' is set
+      if @api_client.config.client_side_validation && send_video_request.nil?
+        fail ArgumentError, "Missing the required parameter 'send_video_request' when calling MessageSendingApi.send_video"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/video'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -1156,7 +1070,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(instances_instance_key_send_video_post_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(send_video_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'APIResponse'
@@ -1165,7 +1079,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_send_video_post",
+        :operation => :"MessageSendingApi.send_video",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1176,7 +1090,93 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_send_video_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_video\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Upload media.
+    # Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+    # @param instance_key [String] Instance key
+    # @param type [String] Media type
+    # @param upload_media_request [UploadMediaRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def upload_media(instance_key, type, upload_media_request, opts = {})
+      data, _status_code, _headers = upload_media_with_http_info(instance_key, type, upload_media_request, opts)
+      data
+    end
+
+    # Upload media.
+    # Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+    # @param instance_key [String] Instance key
+    # @param type [String] Media type
+    # @param upload_media_request [UploadMediaRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def upload_media_with_http_info(instance_key, type, upload_media_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.upload_media ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.upload_media"
+      end
+      # verify the required parameter 'type' is set
+      if @api_client.config.client_side_validation && type.nil?
+        fail ArgumentError, "Missing the required parameter 'type' when calling MessageSendingApi.upload_media"
+      end
+      # verify enum value
+      allowable_values = ["image", "video", "audio", "document"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'upload_media_request' is set
+      if @api_client.config.client_side_validation && upload_media_request.nil?
+        fail ArgumentError, "Missing the required parameter 'upload_media_request' when calling MessageSendingApi.upload_media"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/send/upload'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'type'] = type
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(upload_media_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"MessageSendingApi.upload_media",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MessageSendingApi#upload_media\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

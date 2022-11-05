@@ -19,740 +19,6 @@ module OpenapiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get admin groupss.
-    # Returns list of all groups in which you are admin.
-    # @param instance_key [String] Instance key
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_groups_admin_get(instance_key, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_admin_get_with_http_info(instance_key, opts)
-      data
-    end
-
-    # Get admin groupss.
-    # Returns list of all groups in which you are admin.
-    # @param instance_key [String] Instance key
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_admin_get_with_http_info(instance_key, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_admin_get ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_admin_get"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/groups/admin'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_admin_get",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_admin_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Create group.
-    # Creates a group with the participant data. The creator is automatically added to the group.
-    # @param instance_key [String] Instance key
-    # @param data [GroupCreatePayload] Group create payload
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_groups_create_post(instance_key, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_create_post_with_http_info(instance_key, data, opts)
-      data
-    end
-
-    # Create group.
-    # Creates a group with the participant data. The creator is automatically added to the group.
-    # @param instance_key [String] Instance key
-    # @param data [GroupCreatePayload] Group create payload
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_create_post_with_http_info(instance_key, data, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_create_post ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_create_post"
-      end
-      # verify the required parameter 'data' is set
-      if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.instances_instance_key_groups_create_post"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/groups/create'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_create_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_create_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Get all groups.
-    # Returns list of all groups with participants data. Set include_participants to false to exclude participants data.
-    # @param instance_key [String] Instance key
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :include_participants Include participants data (default to 'true')
-    # @return [APIResponse]
-    def instances_instance_key_groups_get(instance_key, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_get_with_http_info(instance_key, opts)
-      data
-    end
-
-    # Get all groups.
-    # Returns list of all groups with participants data. Set include_participants to false to exclude participants data.
-    # @param instance_key [String] Instance key
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :include_participants Include participants data (default to 'true')
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_get_with_http_info(instance_key, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_get ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_get"
-      end
-      allowable_values = ["false", "true"]
-      if @api_client.config.client_side_validation && opts[:'include_participants'] && !allowable_values.include?(opts[:'include_participants'])
-        fail ArgumentError, "invalid value for \"include_participants\", must be one of #{allowable_values}"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/groups/'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'include_participants'] = opts[:'include_participants'] if !opts[:'include_participants'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_get",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Set group announce.
-    # Set if non-admins are allowed to send messages in groups
-    # @param instance_key [String] Instance key
-    # @param announce [Boolean] Announce status
-    # @param group_id [String] Group id of the group
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_groups_group_id_announce_put(instance_key, announce, group_id, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_group_id_announce_put_with_http_info(instance_key, announce, group_id, opts)
-      data
-    end
-
-    # Set group announce.
-    # Set if non-admins are allowed to send messages in groups
-    # @param instance_key [String] Instance key
-    # @param announce [Boolean] Announce status
-    # @param group_id [String] Group id of the group
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_group_id_announce_put_with_http_info(instance_key, announce, group_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_announce_put ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_group_id_announce_put"
-      end
-      # verify the required parameter 'announce' is set
-      if @api_client.config.client_side_validation && announce.nil?
-        fail ArgumentError, "Missing the required parameter 'announce' when calling GroupManagementApi.instances_instance_key_groups_group_id_announce_put"
-      end
-      # verify enum value
-      allowable_values = ["true", "false"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(announce)
-        fail ArgumentError, "invalid value for \"announce\", must be one of #{allowable_values}"
-      end
-      # verify the required parameter 'group_id' is set
-      if @api_client.config.client_side_validation && group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.instances_instance_key_groups_group_id_announce_put"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/groups/{group_id}/announce'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'announce' + '}', CGI.escape(announce.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_group_id_announce_put",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_group_id_announce_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Leaves the group.
-    # Leaves the specified group.
-    # @param instance_key [String] Instance key
-    # @param group_id [String] Group id of the group
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_groups_group_id_delete(instance_key, group_id, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_group_id_delete_with_http_info(instance_key, group_id, opts)
-      data
-    end
-
-    # Leaves the group.
-    # Leaves the specified group.
-    # @param instance_key [String] Instance key
-    # @param group_id [String] Group id of the group
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_group_id_delete_with_http_info(instance_key, group_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_delete ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_group_id_delete"
-      end
-      # verify the required parameter 'group_id' is set
-      if @api_client.config.client_side_validation && group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.instances_instance_key_groups_group_id_delete"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/groups/{group_id}/'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_group_id_delete",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_group_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Set group description.
-    # Changes the group description
-    # @param instance_key [String] Instance key
-    # @param group_id [String] Group id of the group
-    # @param data [GroupUpdateDescriptionPayload] Group description data
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_groups_group_id_description_put(instance_key, group_id, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_group_id_description_put_with_http_info(instance_key, group_id, data, opts)
-      data
-    end
-
-    # Set group description.
-    # Changes the group description
-    # @param instance_key [String] Instance key
-    # @param group_id [String] Group id of the group
-    # @param data [GroupUpdateDescriptionPayload] Group description data
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_group_id_description_put_with_http_info(instance_key, group_id, data, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_description_put ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_group_id_description_put"
-      end
-      # verify the required parameter 'group_id' is set
-      if @api_client.config.client_side_validation && group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.instances_instance_key_groups_group_id_description_put"
-      end
-      # verify the required parameter 'data' is set
-      if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.instances_instance_key_groups_group_id_description_put"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/groups/{group_id}/description'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_group_id_description_put",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_group_id_description_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Get group.
-    # Fetches the group data.
-    # @param instance_key [String] Instance key
-    # @param group_id [String] Group id of the group
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_groups_group_id_get(instance_key, group_id, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_group_id_get_with_http_info(instance_key, group_id, opts)
-      data
-    end
-
-    # Get group.
-    # Fetches the group data.
-    # @param instance_key [String] Instance key
-    # @param group_id [String] Group id of the group
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_group_id_get_with_http_info(instance_key, group_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_get ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_group_id_get"
-      end
-      # verify the required parameter 'group_id' is set
-      if @api_client.config.client_side_validation && group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.instances_instance_key_groups_group_id_get"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/groups/{group_id}'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_group_id_get",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_group_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Get group invite code.
-    # Gets the invite code of the group.
-    # @param instance_key [String] Instance key
-    # @param group_id [String] Group id of the group
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_groups_group_id_invite_code_get(instance_key, group_id, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_group_id_invite_code_get_with_http_info(instance_key, group_id, opts)
-      data
-    end
-
-    # Get group invite code.
-    # Gets the invite code of the group.
-    # @param instance_key [String] Instance key
-    # @param group_id [String] Group id of the group
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_group_id_invite_code_get_with_http_info(instance_key, group_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_invite_code_get ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_group_id_invite_code_get"
-      end
-      # verify the required parameter 'group_id' is set
-      if @api_client.config.client_side_validation && group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.instances_instance_key_groups_group_id_invite_code_get"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/groups/{group_id}/invite-code'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_group_id_invite_code_get",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_group_id_invite_code_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Set group locked.
-    # Set if non-admins are allowed to change the group dp and other stuff
-    # @param instance_key [String] Instance key
-    # @param locked [Boolean] Locked status
-    # @param group_id [String] Group id of the group
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_groups_group_id_lock_put(instance_key, locked, group_id, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_group_id_lock_put_with_http_info(instance_key, locked, group_id, opts)
-      data
-    end
-
-    # Set group locked.
-    # Set if non-admins are allowed to change the group dp and other stuff
-    # @param instance_key [String] Instance key
-    # @param locked [Boolean] Locked status
-    # @param group_id [String] Group id of the group
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_group_id_lock_put_with_http_info(instance_key, locked, group_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_lock_put ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_group_id_lock_put"
-      end
-      # verify the required parameter 'locked' is set
-      if @api_client.config.client_side_validation && locked.nil?
-        fail ArgumentError, "Missing the required parameter 'locked' when calling GroupManagementApi.instances_instance_key_groups_group_id_lock_put"
-      end
-      # verify enum value
-      allowable_values = ["true", "false"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(locked)
-        fail ArgumentError, "invalid value for \"locked\", must be one of #{allowable_values}"
-      end
-      # verify the required parameter 'group_id' is set
-      if @api_client.config.client_side_validation && group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.instances_instance_key_groups_group_id_lock_put"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/groups/{group_id}/lock'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'locked' + '}', CGI.escape(locked.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_group_id_lock_put",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_group_id_lock_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Set group name.
-    # Changes the group name. The max limit is 22 chars
-    # @param instance_key [String] Instance key
-    # @param group_id [String] Group id of the group
-    # @param data [GroupUpdateNamePayload] Group name data
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_groups_group_id_name_put(instance_key, group_id, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_group_id_name_put_with_http_info(instance_key, group_id, data, opts)
-      data
-    end
-
-    # Set group name.
-    # Changes the group name. The max limit is 22 chars
-    # @param instance_key [String] Instance key
-    # @param group_id [String] Group id of the group
-    # @param data [GroupUpdateNamePayload] Group name data
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_group_id_name_put_with_http_info(instance_key, group_id, data, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_name_put ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_group_id_name_put"
-      end
-      # verify the required parameter 'group_id' is set
-      if @api_client.config.client_side_validation && group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.instances_instance_key_groups_group_id_name_put"
-      end
-      # verify the required parameter 'data' is set
-      if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.instances_instance_key_groups_group_id_name_put"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/groups/{group_id}/name'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_group_id_name_put",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_group_id_name_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Add participant.
     # Handles adding participants to a group. You must be admin in the group or the query will fail.
     # @param instance_key [String] Instance key
@@ -760,8 +26,8 @@ module OpenapiClient
     # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_groups_group_id_participants_add_post(instance_key, group_id, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_group_id_participants_add_post_with_http_info(instance_key, group_id, data, opts)
+    def add_participant(instance_key, group_id, data, opts = {})
+      data, _status_code, _headers = add_participant_with_http_info(instance_key, group_id, data, opts)
       data
     end
 
@@ -772,21 +38,21 @@ module OpenapiClient
     # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_group_id_participants_add_post_with_http_info(instance_key, group_id, data, opts = {})
+    def add_participant_with_http_info(instance_key, group_id, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_participants_add_post ...'
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.add_participant ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_group_id_participants_add_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.add_participant"
       end
       # verify the required parameter 'group_id' is set
       if @api_client.config.client_side_validation && group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.instances_instance_key_groups_group_id_participants_add_post"
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.add_participant"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.instances_instance_key_groups_group_id_participants_add_post"
+        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.add_participant"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/groups/{group_id}/participants/add'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
@@ -817,7 +83,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_group_id_participants_add_post",
+        :operation => :"GroupManagementApi.add_participant",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -828,7 +94,81 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_group_id_participants_add_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: GroupManagementApi#add_participant\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create group.
+    # Creates a group with the participant data. The creator is automatically added to the group.
+    # @param instance_key [String] Instance key
+    # @param data [GroupCreatePayload] Group create payload
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def create_group(instance_key, data, opts = {})
+      data, _status_code, _headers = create_group_with_http_info(instance_key, data, opts)
+      data
+    end
+
+    # Create group.
+    # Creates a group with the participant data. The creator is automatically added to the group.
+    # @param instance_key [String] Instance key
+    # @param data [GroupCreatePayload] Group create payload
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def create_group_with_http_info(instance_key, data, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.create_group ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.create_group"
+      end
+      # verify the required parameter 'data' is set
+      if @api_client.config.client_side_validation && data.nil?
+        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.create_group"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/create'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.create_group",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#create_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -840,8 +180,8 @@ module OpenapiClient
     # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_groups_group_id_participants_demote_put(instance_key, group_id, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_group_id_participants_demote_put_with_http_info(instance_key, group_id, data, opts)
+    def demote_participant(instance_key, group_id, data, opts = {})
+      data, _status_code, _headers = demote_participant_with_http_info(instance_key, group_id, data, opts)
       data
     end
 
@@ -852,21 +192,21 @@ module OpenapiClient
     # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_group_id_participants_demote_put_with_http_info(instance_key, group_id, data, opts = {})
+    def demote_participant_with_http_info(instance_key, group_id, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_participants_demote_put ...'
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.demote_participant ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_group_id_participants_demote_put"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.demote_participant"
       end
       # verify the required parameter 'group_id' is set
       if @api_client.config.client_side_validation && group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.instances_instance_key_groups_group_id_participants_demote_put"
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.demote_participant"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.instances_instance_key_groups_group_id_participants_demote_put"
+        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.demote_participant"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/groups/{group_id}/participants/demote'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
@@ -897,7 +237,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_group_id_participants_demote_put",
+        :operation => :"GroupManagementApi.demote_participant",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -908,7 +248,417 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_group_id_participants_demote_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: GroupManagementApi#demote_participant\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get admin groups.
+    # Returns list of all groups in which you are admin.
+    # @param instance_key [String] Instance key
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def get_admin_groups(instance_key, opts = {})
+      data, _status_code, _headers = get_admin_groups_with_http_info(instance_key, opts)
+      data
+    end
+
+    # Get admin groups.
+    # Returns list of all groups in which you are admin.
+    # @param instance_key [String] Instance key
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def get_admin_groups_with_http_info(instance_key, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.get_admin_groups ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.get_admin_groups"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/admin'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.get_admin_groups",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#get_admin_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all groups.
+    # Returns list of all groups with participants data. Set include_participants to false to exclude participants data.
+    # @param instance_key [String] Instance key
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :include_participants Include participants data (default to 'true')
+    # @return [APIResponse]
+    def get_all_groups(instance_key, opts = {})
+      data, _status_code, _headers = get_all_groups_with_http_info(instance_key, opts)
+      data
+    end
+
+    # Get all groups.
+    # Returns list of all groups with participants data. Set include_participants to false to exclude participants data.
+    # @param instance_key [String] Instance key
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :include_participants Include participants data (default to 'true')
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def get_all_groups_with_http_info(instance_key, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.get_all_groups ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.get_all_groups"
+      end
+      allowable_values = ["false", "true"]
+      if @api_client.config.client_side_validation && opts[:'include_participants'] && !allowable_values.include?(opts[:'include_participants'])
+        fail ArgumentError, "invalid value for \"include_participants\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include_participants'] = opts[:'include_participants'] if !opts[:'include_participants'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.get_all_groups",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#get_all_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get group.
+    # Fetches the group data.
+    # @param instance_key [String] Instance key
+    # @param group_id [String] Group id of the group
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def get_group(instance_key, group_id, opts = {})
+      data, _status_code, _headers = get_group_with_http_info(instance_key, group_id, opts)
+      data
+    end
+
+    # Get group.
+    # Fetches the group data.
+    # @param instance_key [String] Instance key
+    # @param group_id [String] Group id of the group
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def get_group_with_http_info(instance_key, group_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.get_group ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.get_group"
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.get_group"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/{group_id}'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.get_group",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#get_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get group from invite link.
+    # Gets a group info from an invite link. An invite link is a link that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode}
+    # @param instance_key [String] Instance key
+    # @param invite_link [String] The invite link to check
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def get_group_from_invite_link(instance_key, invite_link, opts = {})
+      data, _status_code, _headers = get_group_from_invite_link_with_http_info(instance_key, invite_link, opts)
+      data
+    end
+
+    # Get group from invite link.
+    # Gets a group info from an invite link. An invite link is a link that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode}
+    # @param instance_key [String] Instance key
+    # @param invite_link [String] The invite link to check
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def get_group_from_invite_link_with_http_info(instance_key, invite_link, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.get_group_from_invite_link ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.get_group_from_invite_link"
+      end
+      # verify the required parameter 'invite_link' is set
+      if @api_client.config.client_side_validation && invite_link.nil?
+        fail ArgumentError, "Missing the required parameter 'invite_link' when calling GroupManagementApi.get_group_from_invite_link"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/invite-info'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'invite_link'] = invite_link
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.get_group_from_invite_link",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#get_group_from_invite_link\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get group invite code.
+    # Gets the invite code of the group.
+    # @param instance_key [String] Instance key
+    # @param group_id [String] Group id of the group
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def get_group_invite_code(instance_key, group_id, opts = {})
+      data, _status_code, _headers = get_group_invite_code_with_http_info(instance_key, group_id, opts)
+      data
+    end
+
+    # Get group invite code.
+    # Gets the invite code of the group.
+    # @param instance_key [String] Instance key
+    # @param group_id [String] Group id of the group
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def get_group_invite_code_with_http_info(instance_key, group_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.get_group_invite_code ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.get_group_invite_code"
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.get_group_invite_code"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/{group_id}/invite-code'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.get_group_invite_code",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#get_group_invite_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Leaves the group.
+    # Leaves the specified group.
+    # @param instance_key [String] Instance key
+    # @param group_id [String] Group id of the group
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def leave_group(instance_key, group_id, opts = {})
+      data, _status_code, _headers = leave_group_with_http_info(instance_key, group_id, opts)
+      data
+    end
+
+    # Leaves the group.
+    # Leaves the specified group.
+    # @param instance_key [String] Instance key
+    # @param group_id [String] Group id of the group
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def leave_group_with_http_info(instance_key, group_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.leave_group ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.leave_group"
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.leave_group"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/{group_id}/'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.leave_group",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#leave_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -920,8 +670,8 @@ module OpenapiClient
     # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_groups_group_id_participants_promote_put(instance_key, group_id, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_group_id_participants_promote_put_with_http_info(instance_key, group_id, data, opts)
+    def promote_participant(instance_key, group_id, data, opts = {})
+      data, _status_code, _headers = promote_participant_with_http_info(instance_key, group_id, data, opts)
       data
     end
 
@@ -932,21 +682,21 @@ module OpenapiClient
     # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_group_id_participants_promote_put_with_http_info(instance_key, group_id, data, opts = {})
+    def promote_participant_with_http_info(instance_key, group_id, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_participants_promote_put ...'
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.promote_participant ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_group_id_participants_promote_put"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.promote_participant"
       end
       # verify the required parameter 'group_id' is set
       if @api_client.config.client_side_validation && group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.instances_instance_key_groups_group_id_participants_promote_put"
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.promote_participant"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.instances_instance_key_groups_group_id_participants_promote_put"
+        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.promote_participant"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/groups/{group_id}/participants/promote'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
@@ -977,7 +727,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_group_id_participants_promote_put",
+        :operation => :"GroupManagementApi.promote_participant",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -988,7 +738,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_group_id_participants_promote_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: GroupManagementApi#promote_participant\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1000,8 +750,8 @@ module OpenapiClient
     # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_groups_group_id_participants_remove_delete(instance_key, group_id, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_group_id_participants_remove_delete_with_http_info(instance_key, group_id, data, opts)
+    def remove_participant(instance_key, group_id, data, opts = {})
+      data, _status_code, _headers = remove_participant_with_http_info(instance_key, group_id, data, opts)
       data
     end
 
@@ -1012,21 +762,21 @@ module OpenapiClient
     # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_group_id_participants_remove_delete_with_http_info(instance_key, group_id, data, opts = {})
+    def remove_participant_with_http_info(instance_key, group_id, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_participants_remove_delete ...'
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.remove_participant ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_group_id_participants_remove_delete"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.remove_participant"
       end
       # verify the required parameter 'group_id' is set
       if @api_client.config.client_side_validation && group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.instances_instance_key_groups_group_id_participants_remove_delete"
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.remove_participant"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.instances_instance_key_groups_group_id_participants_remove_delete"
+        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.remove_participant"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/groups/{group_id}/participants/remove'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
@@ -1057,7 +807,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_group_id_participants_remove_delete",
+        :operation => :"GroupManagementApi.remove_participant",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1068,7 +818,327 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_group_id_participants_remove_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: GroupManagementApi#remove_participant\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Set group announce.
+    # Set if non-admins are allowed to send messages in groups
+    # @param instance_key [String] Instance key
+    # @param announce [Boolean] Announce status
+    # @param group_id [String] Group id of the group
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def set_group_announce(instance_key, announce, group_id, opts = {})
+      data, _status_code, _headers = set_group_announce_with_http_info(instance_key, announce, group_id, opts)
+      data
+    end
+
+    # Set group announce.
+    # Set if non-admins are allowed to send messages in groups
+    # @param instance_key [String] Instance key
+    # @param announce [Boolean] Announce status
+    # @param group_id [String] Group id of the group
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def set_group_announce_with_http_info(instance_key, announce, group_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.set_group_announce ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.set_group_announce"
+      end
+      # verify the required parameter 'announce' is set
+      if @api_client.config.client_side_validation && announce.nil?
+        fail ArgumentError, "Missing the required parameter 'announce' when calling GroupManagementApi.set_group_announce"
+      end
+      # verify enum value
+      allowable_values = ["true", "false"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(announce)
+        fail ArgumentError, "invalid value for \"announce\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.set_group_announce"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/{group_id}/announce'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'announce' + '}', CGI.escape(announce.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.set_group_announce",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#set_group_announce\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Set group description.
+    # Changes the group description
+    # @param instance_key [String] Instance key
+    # @param group_id [String] Group id of the group
+    # @param data [GroupUpdateDescriptionPayload] Group description data
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def set_group_description(instance_key, group_id, data, opts = {})
+      data, _status_code, _headers = set_group_description_with_http_info(instance_key, group_id, data, opts)
+      data
+    end
+
+    # Set group description.
+    # Changes the group description
+    # @param instance_key [String] Instance key
+    # @param group_id [String] Group id of the group
+    # @param data [GroupUpdateDescriptionPayload] Group description data
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def set_group_description_with_http_info(instance_key, group_id, data, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.set_group_description ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.set_group_description"
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.set_group_description"
+      end
+      # verify the required parameter 'data' is set
+      if @api_client.config.client_side_validation && data.nil?
+        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.set_group_description"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/{group_id}/description'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.set_group_description",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#set_group_description\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Set group locked.
+    # Set if non-admins are allowed to change the group dp and other stuff
+    # @param instance_key [String] Instance key
+    # @param locked [Boolean] Locked status
+    # @param group_id [String] Group id of the group
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def set_group_locked(instance_key, locked, group_id, opts = {})
+      data, _status_code, _headers = set_group_locked_with_http_info(instance_key, locked, group_id, opts)
+      data
+    end
+
+    # Set group locked.
+    # Set if non-admins are allowed to change the group dp and other stuff
+    # @param instance_key [String] Instance key
+    # @param locked [Boolean] Locked status
+    # @param group_id [String] Group id of the group
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def set_group_locked_with_http_info(instance_key, locked, group_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.set_group_locked ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.set_group_locked"
+      end
+      # verify the required parameter 'locked' is set
+      if @api_client.config.client_side_validation && locked.nil?
+        fail ArgumentError, "Missing the required parameter 'locked' when calling GroupManagementApi.set_group_locked"
+      end
+      # verify enum value
+      allowable_values = ["true", "false"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(locked)
+        fail ArgumentError, "invalid value for \"locked\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.set_group_locked"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/{group_id}/lock'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'locked' + '}', CGI.escape(locked.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.set_group_locked",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#set_group_locked\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Set group name.
+    # Changes the group name. The max limit is 22 chars
+    # @param instance_key [String] Instance key
+    # @param group_id [String] Group id of the group
+    # @param data [GroupUpdateNamePayload] Group name data
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def set_group_name(instance_key, group_id, data, opts = {})
+      data, _status_code, _headers = set_group_name_with_http_info(instance_key, group_id, data, opts)
+      data
+    end
+
+    # Set group name.
+    # Changes the group name. The max limit is 22 chars
+    # @param instance_key [String] Instance key
+    # @param group_id [String] Group id of the group
+    # @param data [GroupUpdateNamePayload] Group name data
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def set_group_name_with_http_info(instance_key, group_id, data, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.set_group_name ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.set_group_name"
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.set_group_name"
+      end
+      # verify the required parameter 'data' is set
+      if @api_client.config.client_side_validation && data.nil?
+        fail ArgumentError, "Missing the required parameter 'data' when calling GroupManagementApi.set_group_name"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/{group_id}/name'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.set_group_name",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#set_group_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1077,11 +1147,11 @@ module OpenapiClient
     # Changes the group profile picture. Currently it only seems to accept JPEG images only
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param instances_instance_key_groups_group_id_profile_pic_put_request [InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest] 
+    # @param set_group_picture_request [SetGroupPictureRequest] 
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_groups_group_id_profile_pic_put(instance_key, group_id, instances_instance_key_groups_group_id_profile_pic_put_request, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_group_id_profile_pic_put_with_http_info(instance_key, group_id, instances_instance_key_groups_group_id_profile_pic_put_request, opts)
+    def set_group_picture(instance_key, group_id, set_group_picture_request, opts = {})
+      data, _status_code, _headers = set_group_picture_with_http_info(instance_key, group_id, set_group_picture_request, opts)
       data
     end
 
@@ -1089,24 +1159,24 @@ module OpenapiClient
     # Changes the group profile picture. Currently it only seems to accept JPEG images only
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param instances_instance_key_groups_group_id_profile_pic_put_request [InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest] 
+    # @param set_group_picture_request [SetGroupPictureRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_group_id_profile_pic_put_with_http_info(instance_key, group_id, instances_instance_key_groups_group_id_profile_pic_put_request, opts = {})
+    def set_group_picture_with_http_info(instance_key, group_id, set_group_picture_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_profile_pic_put ...'
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.set_group_picture ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_group_id_profile_pic_put"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.set_group_picture"
       end
       # verify the required parameter 'group_id' is set
       if @api_client.config.client_side_validation && group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.instances_instance_key_groups_group_id_profile_pic_put"
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.set_group_picture"
       end
-      # verify the required parameter 'instances_instance_key_groups_group_id_profile_pic_put_request' is set
-      if @api_client.config.client_side_validation && instances_instance_key_groups_group_id_profile_pic_put_request.nil?
-        fail ArgumentError, "Missing the required parameter 'instances_instance_key_groups_group_id_profile_pic_put_request' when calling GroupManagementApi.instances_instance_key_groups_group_id_profile_pic_put"
+      # verify the required parameter 'set_group_picture_request' is set
+      if @api_client.config.client_side_validation && set_group_picture_request.nil?
+        fail ArgumentError, "Missing the required parameter 'set_group_picture_request' when calling GroupManagementApi.set_group_picture"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/groups/{group_id}/profile-pic'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
@@ -1128,7 +1198,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(instances_instance_key_groups_group_id_profile_pic_put_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(set_group_picture_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'APIResponse'
@@ -1137,7 +1207,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_group_id_profile_pic_put",
+        :operation => :"GroupManagementApi.set_group_picture",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1148,77 +1218,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_group_id_profile_pic_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Get group from invite link.
-    # Gets a group info from an invite link. An invite link is a link that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode}
-    # @param instance_key [String] Instance key
-    # @param invite_link [String] The invite link to check
-    # @param [Hash] opts the optional parameters
-    # @return [APIResponse]
-    def instances_instance_key_groups_invite_info_get(instance_key, invite_link, opts = {})
-      data, _status_code, _headers = instances_instance_key_groups_invite_info_get_with_http_info(instance_key, invite_link, opts)
-      data
-    end
-
-    # Get group from invite link.
-    # Gets a group info from an invite link. An invite link is a link that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode}
-    # @param instance_key [String] Instance key
-    # @param invite_link [String] The invite link to check
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_groups_invite_info_get_with_http_info(instance_key, invite_link, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_invite_info_get ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.instances_instance_key_groups_invite_info_get"
-      end
-      # verify the required parameter 'invite_link' is set
-      if @api_client.config.client_side_validation && invite_link.nil?
-        fail ArgumentError, "Missing the required parameter 'invite_link' when calling GroupManagementApi.instances_instance_key_groups_invite_info_get"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/groups/invite-info'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'invite_link'] = invite_link
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'APIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"GroupManagementApi.instances_instance_key_groups_invite_info_get",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: GroupManagementApi#instances_instance_key_groups_invite_info_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: GroupManagementApi#set_group_picture\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

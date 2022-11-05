@@ -69,10 +69,10 @@ instance_key = 'instance_key_example' # String | Instance key
 
 begin
   #Fetches the catlog.
-  result = api_instance.instances_instance_key_business_catalog_get(instance_key)
+  result = api_instance.fetch_catlog(instance_key)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling BusinessManagementApi->instances_instance_key_business_catalog_get: #{e}"
+  puts "Exception when calling BusinessManagementApi->fetch_catlog: #{e}"
 end
 
 ```
@@ -83,48 +83,48 @@ All URIs are relative to */api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OpenapiClient::BusinessManagementApi* | [**instances_instance_key_business_catalog_get**](docs/BusinessManagementApi.md#instances_instance_key_business_catalog_get) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_admin_get**](docs/GroupManagementApi.md#instances_instance_key_groups_admin_get) | **GET** /instances/{instance_key}/groups/admin | Get admin groupss.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_create_post**](docs/GroupManagementApi.md#instances_instance_key_groups_create_post) | **POST** /instances/{instance_key}/groups/create | Create group.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_get**](docs/GroupManagementApi.md#instances_instance_key_groups_get) | **GET** /instances/{instance_key}/groups/ | Get all groups.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_group_id_announce_put**](docs/GroupManagementApi.md#instances_instance_key_groups_group_id_announce_put) | **PUT** /instances/{instance_key}/groups/{group_id}/announce | Set group announce.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_group_id_delete**](docs/GroupManagementApi.md#instances_instance_key_groups_group_id_delete) | **DELETE** /instances/{instance_key}/groups/{group_id}/ | Leaves the group.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_group_id_description_put**](docs/GroupManagementApi.md#instances_instance_key_groups_group_id_description_put) | **PUT** /instances/{instance_key}/groups/{group_id}/description | Set group description.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_group_id_get**](docs/GroupManagementApi.md#instances_instance_key_groups_group_id_get) | **GET** /instances/{instance_key}/groups/{group_id} | Get group.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_group_id_invite_code_get**](docs/GroupManagementApi.md#instances_instance_key_groups_group_id_invite_code_get) | **GET** /instances/{instance_key}/groups/{group_id}/invite-code | Get group invite code.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_group_id_lock_put**](docs/GroupManagementApi.md#instances_instance_key_groups_group_id_lock_put) | **PUT** /instances/{instance_key}/groups/{group_id}/lock | Set group locked.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_group_id_name_put**](docs/GroupManagementApi.md#instances_instance_key_groups_group_id_name_put) | **PUT** /instances/{instance_key}/groups/{group_id}/name | Set group name.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_group_id_participants_add_post**](docs/GroupManagementApi.md#instances_instance_key_groups_group_id_participants_add_post) | **POST** /instances/{instance_key}/groups/{group_id}/participants/add | Add participant.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_group_id_participants_demote_put**](docs/GroupManagementApi.md#instances_instance_key_groups_group_id_participants_demote_put) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/demote | Demote participant.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_group_id_participants_promote_put**](docs/GroupManagementApi.md#instances_instance_key_groups_group_id_participants_promote_put) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/promote | Promote participant.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_group_id_participants_remove_delete**](docs/GroupManagementApi.md#instances_instance_key_groups_group_id_participants_remove_delete) | **DELETE** /instances/{instance_key}/groups/{group_id}/participants/remove | Remove participant.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_group_id_profile_pic_put**](docs/GroupManagementApi.md#instances_instance_key_groups_group_id_profile_pic_put) | **PUT** /instances/{instance_key}/groups/{group_id}/profile-pic | Set group picture.
-*OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_invite_info_get**](docs/GroupManagementApi.md#instances_instance_key_groups_invite_info_get) | **GET** /instances/{instance_key}/groups/invite-info | Get group from invite link.
-*OpenapiClient::InstanceApi* | [**instances_create_get**](docs/InstanceApi.md#instances_create_get) | **GET** /instances/create | Creates a new instance key.
-*OpenapiClient::InstanceApi* | [**instances_instance_key_contacts_get**](docs/InstanceApi.md#instances_instance_key_contacts_get) | **GET** /instances/{instance_key}/contacts | Get contacts.
-*OpenapiClient::InstanceApi* | [**instances_instance_key_delete_delete**](docs/InstanceApi.md#instances_instance_key_delete_delete) | **DELETE** /instances/{instance_key}/delete | Delete Instance.
-*OpenapiClient::InstanceApi* | [**instances_instance_key_get**](docs/InstanceApi.md#instances_instance_key_get) | **GET** /instances/{instance_key}/ | Get Instance.
-*OpenapiClient::InstanceApi* | [**instances_instance_key_logout_delete**](docs/InstanceApi.md#instances_instance_key_logout_delete) | **DELETE** /instances/{instance_key}/logout | Logout Instance.
-*OpenapiClient::InstanceApi* | [**instances_instance_key_qrcode_get**](docs/InstanceApi.md#instances_instance_key_qrcode_get) | **GET** /instances/{instance_key}/qrcode | Get QrCode.
-*OpenapiClient::InstanceApi* | [**instances_instance_key_webhook_put**](docs/InstanceApi.md#instances_instance_key_webhook_put) | **PUT** /instances/{instance_key}/webhook | Change Webhook url.
-*OpenapiClient::InstanceApi* | [**instances_list_get**](docs/InstanceApi.md#instances_list_get) | **GET** /instances/list | Get all instances.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_audio_post**](docs/MessageSendingApi.md#instances_instance_key_send_audio_post) | **POST** /instances/{instance_key}/send/audio | Send raw audio.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_button_media_post**](docs/MessageSendingApi.md#instances_instance_key_send_button_media_post) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_buttons_post**](docs/MessageSendingApi.md#instances_instance_key_send_buttons_post) | **POST** /instances/{instance_key}/send/buttons | Send a button message.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_contact_post**](docs/MessageSendingApi.md#instances_instance_key_send_contact_post) | **POST** /instances/{instance_key}/send/contact | Send a contact message.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_document_post**](docs/MessageSendingApi.md#instances_instance_key_send_document_post) | **POST** /instances/{instance_key}/send/document | Send raw document.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_image_post**](docs/MessageSendingApi.md#instances_instance_key_send_image_post) | **POST** /instances/{instance_key}/send/image | Send raw image.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_list_post**](docs/MessageSendingApi.md#instances_instance_key_send_list_post) | **POST** /instances/{instance_key}/send/list | Send a List message.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_location_post**](docs/MessageSendingApi.md#instances_instance_key_send_location_post) | **POST** /instances/{instance_key}/send/location | Send a location message.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_media_post**](docs/MessageSendingApi.md#instances_instance_key_send_media_post) | **POST** /instances/{instance_key}/send/media | Send a media message.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_poll_post**](docs/MessageSendingApi.md#instances_instance_key_send_poll_post) | **POST** /instances/{instance_key}/send/poll | Send a Poll message.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_template_media_post**](docs/MessageSendingApi.md#instances_instance_key_send_template_media_post) | **POST** /instances/{instance_key}/send/template-media | Send a template message with media.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_template_post**](docs/MessageSendingApi.md#instances_instance_key_send_template_post) | **POST** /instances/{instance_key}/send/template | Send a template message.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_text_post**](docs/MessageSendingApi.md#instances_instance_key_send_text_post) | **POST** /instances/{instance_key}/send/text | Send a text message.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_upload_post**](docs/MessageSendingApi.md#instances_instance_key_send_upload_post) | **POST** /instances/{instance_key}/send/upload | Upload media.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_video_post**](docs/MessageSendingApi.md#instances_instance_key_send_video_post) | **POST** /instances/{instance_key}/send/video | Send raw video.
-*OpenapiClient::MiscellaneousApi* | [**instances_instance_key_misc_profile_pic_get**](docs/MiscellaneousApi.md#instances_instance_key_misc_profile_pic_get) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic.
-*OpenapiClient::MiscellaneousApi* | [**instances_instance_key_misc_user_info_post**](docs/MiscellaneousApi.md#instances_instance_key_misc_user_info_post) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info.
+*OpenapiClient::BusinessManagementApi* | [**fetch_catlog**](docs/BusinessManagementApi.md#fetch_catlog) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog.
+*OpenapiClient::GroupManagementApi* | [**add_participant**](docs/GroupManagementApi.md#add_participant) | **POST** /instances/{instance_key}/groups/{group_id}/participants/add | Add participant.
+*OpenapiClient::GroupManagementApi* | [**create_group**](docs/GroupManagementApi.md#create_group) | **POST** /instances/{instance_key}/groups/create | Create group.
+*OpenapiClient::GroupManagementApi* | [**demote_participant**](docs/GroupManagementApi.md#demote_participant) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/demote | Demote participant.
+*OpenapiClient::GroupManagementApi* | [**get_admin_groups**](docs/GroupManagementApi.md#get_admin_groups) | **GET** /instances/{instance_key}/groups/admin | Get admin groups.
+*OpenapiClient::GroupManagementApi* | [**get_all_groups**](docs/GroupManagementApi.md#get_all_groups) | **GET** /instances/{instance_key}/groups/ | Get all groups.
+*OpenapiClient::GroupManagementApi* | [**get_group**](docs/GroupManagementApi.md#get_group) | **GET** /instances/{instance_key}/groups/{group_id} | Get group.
+*OpenapiClient::GroupManagementApi* | [**get_group_from_invite_link**](docs/GroupManagementApi.md#get_group_from_invite_link) | **GET** /instances/{instance_key}/groups/invite-info | Get group from invite link.
+*OpenapiClient::GroupManagementApi* | [**get_group_invite_code**](docs/GroupManagementApi.md#get_group_invite_code) | **GET** /instances/{instance_key}/groups/{group_id}/invite-code | Get group invite code.
+*OpenapiClient::GroupManagementApi* | [**leave_group**](docs/GroupManagementApi.md#leave_group) | **DELETE** /instances/{instance_key}/groups/{group_id}/ | Leaves the group.
+*OpenapiClient::GroupManagementApi* | [**promote_participant**](docs/GroupManagementApi.md#promote_participant) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/promote | Promote participant.
+*OpenapiClient::GroupManagementApi* | [**remove_participant**](docs/GroupManagementApi.md#remove_participant) | **DELETE** /instances/{instance_key}/groups/{group_id}/participants/remove | Remove participant.
+*OpenapiClient::GroupManagementApi* | [**set_group_announce**](docs/GroupManagementApi.md#set_group_announce) | **PUT** /instances/{instance_key}/groups/{group_id}/announce | Set group announce.
+*OpenapiClient::GroupManagementApi* | [**set_group_description**](docs/GroupManagementApi.md#set_group_description) | **PUT** /instances/{instance_key}/groups/{group_id}/description | Set group description.
+*OpenapiClient::GroupManagementApi* | [**set_group_locked**](docs/GroupManagementApi.md#set_group_locked) | **PUT** /instances/{instance_key}/groups/{group_id}/lock | Set group locked.
+*OpenapiClient::GroupManagementApi* | [**set_group_name**](docs/GroupManagementApi.md#set_group_name) | **PUT** /instances/{instance_key}/groups/{group_id}/name | Set group name.
+*OpenapiClient::GroupManagementApi* | [**set_group_picture**](docs/GroupManagementApi.md#set_group_picture) | **PUT** /instances/{instance_key}/groups/{group_id}/profile-pic | Set group picture.
+*OpenapiClient::InstanceApi* | [**change_webhook_url**](docs/InstanceApi.md#change_webhook_url) | **PUT** /instances/{instance_key}/webhook | Change Webhook url.
+*OpenapiClient::InstanceApi* | [**create_instance**](docs/InstanceApi.md#create_instance) | **GET** /instances/create | Creates a new instance key.
+*OpenapiClient::InstanceApi* | [**delete_instance**](docs/InstanceApi.md#delete_instance) | **DELETE** /instances/{instance_key}/delete | Delete Instance.
+*OpenapiClient::InstanceApi* | [**get_contacts**](docs/InstanceApi.md#get_contacts) | **GET** /instances/{instance_key}/contacts | Get contacts.
+*OpenapiClient::InstanceApi* | [**get_instance**](docs/InstanceApi.md#get_instance) | **GET** /instances/{instance_key}/ | Get Instance.
+*OpenapiClient::InstanceApi* | [**get_qr_code**](docs/InstanceApi.md#get_qr_code) | **GET** /instances/{instance_key}/qrcode | Get QrCode.
+*OpenapiClient::InstanceApi* | [**list_instances**](docs/InstanceApi.md#list_instances) | **GET** /instances/list | Get all instances.
+*OpenapiClient::InstanceApi* | [**logout_instance**](docs/InstanceApi.md#logout_instance) | **DELETE** /instances/{instance_key}/logout | Logout Instance.
+*OpenapiClient::MessageSendingApi* | [**send_audio**](docs/MessageSendingApi.md#send_audio) | **POST** /instances/{instance_key}/send/audio | Send raw audio.
+*OpenapiClient::MessageSendingApi* | [**send_button_message**](docs/MessageSendingApi.md#send_button_message) | **POST** /instances/{instance_key}/send/buttons | Send a button message.
+*OpenapiClient::MessageSendingApi* | [**send_button_with_media**](docs/MessageSendingApi.md#send_button_with_media) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header.
+*OpenapiClient::MessageSendingApi* | [**send_contact**](docs/MessageSendingApi.md#send_contact) | **POST** /instances/{instance_key}/send/contact | Send a contact message.
+*OpenapiClient::MessageSendingApi* | [**send_document**](docs/MessageSendingApi.md#send_document) | **POST** /instances/{instance_key}/send/document | Send raw document.
+*OpenapiClient::MessageSendingApi* | [**send_image**](docs/MessageSendingApi.md#send_image) | **POST** /instances/{instance_key}/send/image | Send raw image.
+*OpenapiClient::MessageSendingApi* | [**send_list_message**](docs/MessageSendingApi.md#send_list_message) | **POST** /instances/{instance_key}/send/list | Send a List message.
+*OpenapiClient::MessageSendingApi* | [**send_location**](docs/MessageSendingApi.md#send_location) | **POST** /instances/{instance_key}/send/location | Send a location message.
+*OpenapiClient::MessageSendingApi* | [**send_media_message**](docs/MessageSendingApi.md#send_media_message) | **POST** /instances/{instance_key}/send/media | Send a media message.
+*OpenapiClient::MessageSendingApi* | [**send_poll_message**](docs/MessageSendingApi.md#send_poll_message) | **POST** /instances/{instance_key}/send/poll | Send a Poll message.
+*OpenapiClient::MessageSendingApi* | [**send_template**](docs/MessageSendingApi.md#send_template) | **POST** /instances/{instance_key}/send/template | Send a template message.
+*OpenapiClient::MessageSendingApi* | [**send_template_with_media**](docs/MessageSendingApi.md#send_template_with_media) | **POST** /instances/{instance_key}/send/template-media | Send a template message with media.
+*OpenapiClient::MessageSendingApi* | [**send_text_message**](docs/MessageSendingApi.md#send_text_message) | **POST** /instances/{instance_key}/send/text | Send a text message.
+*OpenapiClient::MessageSendingApi* | [**send_video**](docs/MessageSendingApi.md#send_video) | **POST** /instances/{instance_key}/send/video | Send raw video.
+*OpenapiClient::MessageSendingApi* | [**upload_media**](docs/MessageSendingApi.md#upload_media) | **POST** /instances/{instance_key}/send/upload | Upload media.
+*OpenapiClient::MiscellaneousApi* | [**get_profile_pic**](docs/MiscellaneousApi.md#get_profile_pic) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic.
+*OpenapiClient::MiscellaneousApi* | [**get_users_info**](docs/MiscellaneousApi.md#get_users_info) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info.
 
 
 ## Documentation for Models
@@ -139,12 +139,6 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::GroupUpdateDescriptionPayload](docs/GroupUpdateDescriptionPayload.md)
  - [OpenapiClient::GroupUpdateNamePayload](docs/GroupUpdateNamePayload.md)
  - [OpenapiClient::GroupUpdateParticipantsPayload](docs/GroupUpdateParticipantsPayload.md)
- - [OpenapiClient::InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest](docs/InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest.md)
- - [OpenapiClient::InstancesInstanceKeySendAudioPostRequest](docs/InstancesInstanceKeySendAudioPostRequest.md)
- - [OpenapiClient::InstancesInstanceKeySendDocumentPostRequest](docs/InstancesInstanceKeySendDocumentPostRequest.md)
- - [OpenapiClient::InstancesInstanceKeySendImagePostRequest](docs/InstancesInstanceKeySendImagePostRequest.md)
- - [OpenapiClient::InstancesInstanceKeySendUploadPostRequest](docs/InstancesInstanceKeySendUploadPostRequest.md)
- - [OpenapiClient::InstancesInstanceKeySendVideoPostRequest](docs/InstancesInstanceKeySendVideoPostRequest.md)
  - [OpenapiClient::ListItem](docs/ListItem.md)
  - [OpenapiClient::ListMessagePayload](docs/ListMessagePayload.md)
  - [OpenapiClient::ListSection](docs/ListSection.md)
@@ -152,11 +146,17 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::LocationMessagePayloadLocation](docs/LocationMessagePayloadLocation.md)
  - [OpenapiClient::PollMessagePayload](docs/PollMessagePayload.md)
  - [OpenapiClient::ReplyButton](docs/ReplyButton.md)
+ - [OpenapiClient::SendAudioRequest](docs/SendAudioRequest.md)
+ - [OpenapiClient::SendDocumentRequest](docs/SendDocumentRequest.md)
+ - [OpenapiClient::SendImageRequest](docs/SendImageRequest.md)
  - [OpenapiClient::SendMediaPayload](docs/SendMediaPayload.md)
+ - [OpenapiClient::SendVideoRequest](docs/SendVideoRequest.md)
+ - [OpenapiClient::SetGroupPictureRequest](docs/SetGroupPictureRequest.md)
  - [OpenapiClient::TemplateButton](docs/TemplateButton.md)
  - [OpenapiClient::TemplateButtonPayload](docs/TemplateButtonPayload.md)
  - [OpenapiClient::TemplateButtonWithMediaPayload](docs/TemplateButtonWithMediaPayload.md)
  - [OpenapiClient::TextMessage](docs/TextMessage.md)
+ - [OpenapiClient::UploadMediaRequest](docs/UploadMediaRequest.md)
  - [OpenapiClient::UserInfoPayload](docs/UserInfoPayload.md)
  - [OpenapiClient::WebhookPayload](docs/WebhookPayload.md)
 

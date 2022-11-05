@@ -25,8 +25,8 @@ module OpenapiClient
     # @param jid [String] JID
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_misc_profile_pic_get(instance_key, jid, opts = {})
-      data, _status_code, _headers = instances_instance_key_misc_profile_pic_get_with_http_info(instance_key, jid, opts)
+    def get_profile_pic(instance_key, jid, opts = {})
+      data, _status_code, _headers = get_profile_pic_with_http_info(instance_key, jid, opts)
       data
     end
 
@@ -36,17 +36,17 @@ module OpenapiClient
     # @param jid [String] JID
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_misc_profile_pic_get_with_http_info(instance_key, jid, opts = {})
+    def get_profile_pic_with_http_info(instance_key, jid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MiscellaneousApi.instances_instance_key_misc_profile_pic_get ...'
+        @api_client.config.logger.debug 'Calling API: MiscellaneousApi.get_profile_pic ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MiscellaneousApi.instances_instance_key_misc_profile_pic_get"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MiscellaneousApi.get_profile_pic"
       end
       # verify the required parameter 'jid' is set
       if @api_client.config.client_side_validation && jid.nil?
-        fail ArgumentError, "Missing the required parameter 'jid' when calling MiscellaneousApi.instances_instance_key_misc_profile_pic_get"
+        fail ArgumentError, "Missing the required parameter 'jid' when calling MiscellaneousApi.get_profile_pic"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/misc/profile-pic'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -73,7 +73,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MiscellaneousApi.instances_instance_key_misc_profile_pic_get",
+        :operation => :"MiscellaneousApi.get_profile_pic",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -84,7 +84,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MiscellaneousApi#instances_instance_key_misc_profile_pic_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MiscellaneousApi#get_profile_pic\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -95,8 +95,8 @@ module OpenapiClient
     # @param data [UserInfoPayload] Data
     # @param [Hash] opts the optional parameters
     # @return [APIResponse]
-    def instances_instance_key_misc_user_info_post(instance_key, data, opts = {})
-      data, _status_code, _headers = instances_instance_key_misc_user_info_post_with_http_info(instance_key, data, opts)
+    def get_users_info(instance_key, data, opts = {})
+      data, _status_code, _headers = get_users_info_with_http_info(instance_key, data, opts)
       data
     end
 
@@ -106,17 +106,17 @@ module OpenapiClient
     # @param data [UserInfoPayload] Data
     # @param [Hash] opts the optional parameters
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def instances_instance_key_misc_user_info_post_with_http_info(instance_key, data, opts = {})
+    def get_users_info_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MiscellaneousApi.instances_instance_key_misc_user_info_post ...'
+        @api_client.config.logger.debug 'Calling API: MiscellaneousApi.get_users_info ...'
       end
       # verify the required parameter 'instance_key' is set
       if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MiscellaneousApi.instances_instance_key_misc_user_info_post"
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MiscellaneousApi.get_users_info"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
-        fail ArgumentError, "Missing the required parameter 'data' when calling MiscellaneousApi.instances_instance_key_misc_user_info_post"
+        fail ArgumentError, "Missing the required parameter 'data' when calling MiscellaneousApi.get_users_info"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/misc/user-info'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -147,7 +147,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"MiscellaneousApi.instances_instance_key_misc_user_info_post",
+        :operation => :"MiscellaneousApi.get_users_info",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -158,7 +158,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MiscellaneousApi#instances_instance_key_misc_user_info_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MiscellaneousApi#get_users_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
