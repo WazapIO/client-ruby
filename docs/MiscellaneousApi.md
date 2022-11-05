@@ -10,7 +10,7 @@ All URIs are relative to */api*
 
 ## instances_instance_key_misc_profile_pic_get
 
-> <MainAPIResponse> instances_instance_key_misc_profile_pic_get(instance_key, jid)
+> <APIResponse> instances_instance_key_misc_profile_pic_get(instance_key, jid)
 
 Get profile pic.
 
@@ -46,7 +46,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_misc_profile_pic_get_with_http_info(instance_key, jid)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_misc_profile_pic_get_with_http_info(instance_key, jid)
 
 ```ruby
 begin
@@ -54,7 +54,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_misc_profile_pic_get_with_http_info(instance_key, jid)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MiscellaneousApi->instances_instance_key_misc_profile_pic_get_with_http_info: #{e}"
 end
@@ -69,7 +69,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ end
 
 ## instances_instance_key_misc_user_info_post
 
-> <MainAPIResponse> instances_instance_key_misc_user_info_post(instance_key, data)
+> <APIResponse> instances_instance_key_misc_user_info_post(instance_key, data)
 
 Fetches the users info.
 
@@ -104,7 +104,7 @@ end
 
 api_instance = OpenapiClient::MiscellaneousApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsUserInfoPayload.new({user_ids: ['user_ids_example']}) # StructsUserInfoPayload | Data
+data = OpenapiClient::UserInfoPayload.new({user_ids: ['user_ids_example']}) # UserInfoPayload | Data
 
 begin
   # Fetches the users info.
@@ -119,7 +119,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_misc_user_info_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_misc_user_info_post_with_http_info(instance_key, data)
 
 ```ruby
 begin
@@ -127,7 +127,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_misc_user_info_post_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MiscellaneousApi->instances_instance_key_misc_user_info_post_with_http_info: #{e}"
 end
@@ -138,11 +138,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsUserInfoPayload**](StructsUserInfoPayload.md) | Data |  |
+| **data** | [**UserInfoPayload**](UserInfoPayload.md) | Data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 

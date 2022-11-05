@@ -23,7 +23,7 @@ module OpenapiClient
     # Returns list of all groups in which you are admin.
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_admin_get(instance_key, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_admin_get_with_http_info(instance_key, opts)
       data
@@ -33,7 +33,7 @@ module OpenapiClient
     # Returns list of all groups in which you are admin.
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_admin_get_with_http_info(instance_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_admin_get ...'
@@ -60,7 +60,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -85,9 +85,9 @@ module OpenapiClient
     # Create group.
     # Creates a group with the participant data. The creator is automatically added to the group.
     # @param instance_key [String] Instance key
-    # @param data [StructsGroupCreatePayload] Group create payload
+    # @param data [GroupCreatePayload] Group create payload
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_create_post(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_create_post_with_http_info(instance_key, data, opts)
       data
@@ -96,9 +96,9 @@ module OpenapiClient
     # Create group.
     # Creates a group with the participant data. The creator is automatically added to the group.
     # @param instance_key [String] Instance key
-    # @param data [StructsGroupCreatePayload] Group create payload
+    # @param data [GroupCreatePayload] Group create payload
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_create_post_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_create_post ...'
@@ -134,7 +134,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -161,7 +161,7 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :include_participants Include participants data (default to 'true')
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_get(instance_key, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_get_with_http_info(instance_key, opts)
       data
@@ -172,7 +172,7 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :include_participants Include participants data (default to 'true')
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_get_with_http_info(instance_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_get ...'
@@ -204,7 +204,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -232,7 +232,7 @@ module OpenapiClient
     # @param announce [Boolean] Announce status
     # @param group_id [String] Group id of the group
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_group_id_announce_put(instance_key, announce, group_id, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_group_id_announce_put_with_http_info(instance_key, announce, group_id, opts)
       data
@@ -244,7 +244,7 @@ module OpenapiClient
     # @param announce [Boolean] Announce status
     # @param group_id [String] Group id of the group
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_group_id_announce_put_with_http_info(instance_key, announce, group_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_announce_put ...'
@@ -284,7 +284,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -311,7 +311,7 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_group_id_delete(instance_key, group_id, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_group_id_delete_with_http_info(instance_key, group_id, opts)
       data
@@ -322,7 +322,7 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_group_id_delete_with_http_info(instance_key, group_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_delete ...'
@@ -353,7 +353,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -379,9 +379,9 @@ module OpenapiClient
     # Changes the group description
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param data [StructsGroupUpdateDescriptionPayload] Group description data
+    # @param data [GroupUpdateDescriptionPayload] Group description data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_group_id_description_put(instance_key, group_id, data, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_group_id_description_put_with_http_info(instance_key, group_id, data, opts)
       data
@@ -391,9 +391,9 @@ module OpenapiClient
     # Changes the group description
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param data [StructsGroupUpdateDescriptionPayload] Group description data
+    # @param data [GroupUpdateDescriptionPayload] Group description data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_group_id_description_put_with_http_info(instance_key, group_id, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_description_put ...'
@@ -433,7 +433,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -460,7 +460,7 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_group_id_get(instance_key, group_id, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_group_id_get_with_http_info(instance_key, group_id, opts)
       data
@@ -471,7 +471,7 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_group_id_get_with_http_info(instance_key, group_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_get ...'
@@ -502,7 +502,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -529,7 +529,7 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_group_id_invite_code_get(instance_key, group_id, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_group_id_invite_code_get_with_http_info(instance_key, group_id, opts)
       data
@@ -540,7 +540,7 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_group_id_invite_code_get_with_http_info(instance_key, group_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_invite_code_get ...'
@@ -571,7 +571,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -599,7 +599,7 @@ module OpenapiClient
     # @param locked [Boolean] Locked status
     # @param group_id [String] Group id of the group
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_group_id_lock_put(instance_key, locked, group_id, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_group_id_lock_put_with_http_info(instance_key, locked, group_id, opts)
       data
@@ -611,7 +611,7 @@ module OpenapiClient
     # @param locked [Boolean] Locked status
     # @param group_id [String] Group id of the group
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_group_id_lock_put_with_http_info(instance_key, locked, group_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_lock_put ...'
@@ -651,7 +651,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -677,9 +677,9 @@ module OpenapiClient
     # Changes the group name. The max limit is 22 chars
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param data [StructsGroupUpdateNamePayload] Group name data
+    # @param data [GroupUpdateNamePayload] Group name data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_group_id_name_put(instance_key, group_id, data, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_group_id_name_put_with_http_info(instance_key, group_id, data, opts)
       data
@@ -689,9 +689,9 @@ module OpenapiClient
     # Changes the group name. The max limit is 22 chars
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param data [StructsGroupUpdateNamePayload] Group name data
+    # @param data [GroupUpdateNamePayload] Group name data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_group_id_name_put_with_http_info(instance_key, group_id, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_name_put ...'
@@ -731,7 +731,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -757,9 +757,9 @@ module OpenapiClient
     # Handles adding participants to a group. You must be admin in the group or the query will fail.
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param data [StructsGroupUpdateParticipantsPayload] Group update payload
+    # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_group_id_participants_add_post(instance_key, group_id, data, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_group_id_participants_add_post_with_http_info(instance_key, group_id, data, opts)
       data
@@ -769,9 +769,9 @@ module OpenapiClient
     # Handles adding participants to a group. You must be admin in the group or the query will fail.
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param data [StructsGroupUpdateParticipantsPayload] Group update payload
+    # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_group_id_participants_add_post_with_http_info(instance_key, group_id, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_participants_add_post ...'
@@ -811,7 +811,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -837,9 +837,9 @@ module OpenapiClient
     # Demotes admins in groups. You must be admin in the group or the query will fail.
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param data [StructsGroupUpdateParticipantsPayload] Group update payload
+    # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_group_id_participants_demote_put(instance_key, group_id, data, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_group_id_participants_demote_put_with_http_info(instance_key, group_id, data, opts)
       data
@@ -849,9 +849,9 @@ module OpenapiClient
     # Demotes admins in groups. You must be admin in the group or the query will fail.
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param data [StructsGroupUpdateParticipantsPayload] Group update payload
+    # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_group_id_participants_demote_put_with_http_info(instance_key, group_id, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_participants_demote_put ...'
@@ -891,7 +891,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -917,9 +917,9 @@ module OpenapiClient
     # Promotes participants to admin. You must be admin in the group or the query will fail.
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param data [StructsGroupUpdateParticipantsPayload] Group update payload
+    # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_group_id_participants_promote_put(instance_key, group_id, data, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_group_id_participants_promote_put_with_http_info(instance_key, group_id, data, opts)
       data
@@ -929,9 +929,9 @@ module OpenapiClient
     # Promotes participants to admin. You must be admin in the group or the query will fail.
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param data [StructsGroupUpdateParticipantsPayload] Group update payload
+    # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_group_id_participants_promote_put_with_http_info(instance_key, group_id, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_participants_promote_put ...'
@@ -971,7 +971,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -997,9 +997,9 @@ module OpenapiClient
     # Handles removing participants from a group. You must be admin in the group or the query will fail.
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param data [StructsGroupUpdateParticipantsPayload] Group update payload
+    # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_group_id_participants_remove_delete(instance_key, group_id, data, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_group_id_participants_remove_delete_with_http_info(instance_key, group_id, data, opts)
       data
@@ -1009,9 +1009,9 @@ module OpenapiClient
     # Handles removing participants from a group. You must be admin in the group or the query will fail.
     # @param instance_key [String] Instance key
     # @param group_id [String] Group id of the group
-    # @param data [StructsGroupUpdateParticipantsPayload] Group update payload
+    # @param data [GroupUpdateParticipantsPayload] Group update payload
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_group_id_participants_remove_delete_with_http_info(instance_key, group_id, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_participants_remove_delete ...'
@@ -1051,7 +1051,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -1079,7 +1079,7 @@ module OpenapiClient
     # @param group_id [String] Group id of the group
     # @param instances_instance_key_groups_group_id_profile_pic_put_request [InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_group_id_profile_pic_put(instance_key, group_id, instances_instance_key_groups_group_id_profile_pic_put_request, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_group_id_profile_pic_put_with_http_info(instance_key, group_id, instances_instance_key_groups_group_id_profile_pic_put_request, opts)
       data
@@ -1091,7 +1091,7 @@ module OpenapiClient
     # @param group_id [String] Group id of the group
     # @param instances_instance_key_groups_group_id_profile_pic_put_request [InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_group_id_profile_pic_put_with_http_info(instance_key, group_id, instances_instance_key_groups_group_id_profile_pic_put_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_group_id_profile_pic_put ...'
@@ -1131,7 +1131,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(instances_instance_key_groups_group_id_profile_pic_put_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -1158,7 +1158,7 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param invite_link [String] The invite link to check
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_groups_invite_info_get(instance_key, invite_link, opts = {})
       data, _status_code, _headers = instances_instance_key_groups_invite_info_get_with_http_info(instance_key, invite_link, opts)
       data
@@ -1169,7 +1169,7 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param invite_link [String] The invite link to check
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_groups_invite_info_get_with_http_info(instance_key, invite_link, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GroupManagementApi.instances_instance_key_groups_invite_info_get ...'
@@ -1201,7 +1201,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']

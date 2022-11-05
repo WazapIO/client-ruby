@@ -23,7 +23,7 @@ module OpenapiClient
     # This endpoint is used to create a new WhatsApp Web instance.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :instance_key Insert instance key if you want to provide custom key
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_create_get(opts = {})
       data, _status_code, _headers = instances_create_get_with_http_info(opts)
       data
@@ -33,7 +33,7 @@ module OpenapiClient
     # This endpoint is used to create a new WhatsApp Web instance.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :instance_key Insert instance key if you want to provide custom key
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_create_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstanceApi.instances_create_get ...'
@@ -57,7 +57,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -83,7 +83,7 @@ module OpenapiClient
     # Fetches the list of contacts in the instance.
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_contacts_get(instance_key, opts = {})
       data, _status_code, _headers = instances_instance_key_contacts_get_with_http_info(instance_key, opts)
       data
@@ -93,7 +93,7 @@ module OpenapiClient
     # Fetches the list of contacts in the instance.
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_contacts_get_with_http_info(instance_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstanceApi.instances_instance_key_contacts_get ...'
@@ -120,7 +120,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -146,7 +146,7 @@ module OpenapiClient
     # Deletes the instance with the provided key.
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_delete_delete(instance_key, opts = {})
       data, _status_code, _headers = instances_instance_key_delete_delete_with_http_info(instance_key, opts)
       data
@@ -156,7 +156,7 @@ module OpenapiClient
     # Deletes the instance with the provided key.
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_delete_delete_with_http_info(instance_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstanceApi.instances_instance_key_delete_delete ...'
@@ -183,7 +183,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -209,7 +209,7 @@ module OpenapiClient
     # Returns the instance data of single instance with connection status.
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_get(instance_key, opts = {})
       data, _status_code, _headers = instances_instance_key_get_with_http_info(instance_key, opts)
       data
@@ -219,7 +219,7 @@ module OpenapiClient
     # Returns the instance data of single instance with connection status.
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_get_with_http_info(instance_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstanceApi.instances_instance_key_get ...'
@@ -246,7 +246,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -272,7 +272,7 @@ module OpenapiClient
     # Logouts of the instance with the provided key.
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_logout_delete(instance_key, opts = {})
       data, _status_code, _headers = instances_instance_key_logout_delete_with_http_info(instance_key, opts)
       data
@@ -282,7 +282,7 @@ module OpenapiClient
     # Logouts of the instance with the provided key.
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_logout_delete_with_http_info(instance_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstanceApi.instances_instance_key_logout_delete ...'
@@ -309,7 +309,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -335,7 +335,7 @@ module OpenapiClient
     # Returns the qrcode in the base64 format.
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_qrcode_get(instance_key, opts = {})
       data, _status_code, _headers = instances_instance_key_qrcode_get_with_http_info(instance_key, opts)
       data
@@ -345,7 +345,7 @@ module OpenapiClient
     # Returns the qrcode in the base64 format.
     # @param instance_key [String] Instance key
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_qrcode_get_with_http_info(instance_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstanceApi.instances_instance_key_qrcode_get ...'
@@ -372,7 +372,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -397,9 +397,9 @@ module OpenapiClient
     # Change Webhook url.
     # Changes the webhook url of an instance.
     # @param instance_key [String] Instance key
-    # @param data [StructsWebhookPayload] Message data
+    # @param data [WebhookPayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_webhook_put(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_webhook_put_with_http_info(instance_key, data, opts)
       data
@@ -408,9 +408,9 @@ module OpenapiClient
     # Change Webhook url.
     # Changes the webhook url of an instance.
     # @param instance_key [String] Instance key
-    # @param data [StructsWebhookPayload] Message data
+    # @param data [WebhookPayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_webhook_put_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstanceApi.instances_instance_key_webhook_put ...'
@@ -446,7 +446,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -471,7 +471,7 @@ module OpenapiClient
     # Get all instances.
     # Fetches the list of all Instances with login status.
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_list_get(opts = {})
       data, _status_code, _headers = instances_list_get_with_http_info(opts)
       data
@@ -480,7 +480,7 @@ module OpenapiClient
     # Get all instances.
     # Fetches the list of all Instances with login status.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_list_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstanceApi.instances_list_get ...'
@@ -503,7 +503,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']

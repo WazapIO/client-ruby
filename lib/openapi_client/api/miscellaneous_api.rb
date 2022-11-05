@@ -24,7 +24,7 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param jid [String] JID
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_misc_profile_pic_get(instance_key, jid, opts = {})
       data, _status_code, _headers = instances_instance_key_misc_profile_pic_get_with_http_info(instance_key, jid, opts)
       data
@@ -35,7 +35,7 @@ module OpenapiClient
     # @param instance_key [String] Instance key
     # @param jid [String] JID
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_misc_profile_pic_get_with_http_info(instance_key, jid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscellaneousApi.instances_instance_key_misc_profile_pic_get ...'
@@ -67,7 +67,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -92,9 +92,9 @@ module OpenapiClient
     # Fetches the users info.
     # Gets the user info for the given user ids. This does not checks if user is registered or not
     # @param instance_key [String] Instance key
-    # @param data [StructsUserInfoPayload] Data
+    # @param data [UserInfoPayload] Data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_misc_user_info_post(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_misc_user_info_post_with_http_info(instance_key, data, opts)
       data
@@ -103,9 +103,9 @@ module OpenapiClient
     # Fetches the users info.
     # Gets the user info for the given user ids. This does not checks if user is registered or not
     # @param instance_key [String] Instance key
-    # @param data [StructsUserInfoPayload] Data
+    # @param data [UserInfoPayload] Data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_misc_user_info_post_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscellaneousApi.instances_instance_key_misc_user_info_post ...'
@@ -141,7 +141,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']

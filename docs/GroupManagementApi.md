@@ -24,7 +24,7 @@ All URIs are relative to */api*
 
 ## instances_instance_key_groups_admin_get
 
-> <MainAPIResponse> instances_instance_key_groups_admin_get(instance_key)
+> <APIResponse> instances_instance_key_groups_admin_get(instance_key)
 
 Get admin groupss.
 
@@ -59,7 +59,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_admin_get_with_http_info(instance_key)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_admin_get_with_http_info(instance_key)
 
 ```ruby
 begin
@@ -67,7 +67,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_admin_get_with_http_info(instance_key)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_admin_get_with_http_info: #{e}"
 end
@@ -81,7 +81,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -95,7 +95,7 @@ end
 
 ## instances_instance_key_groups_create_post
 
-> <MainAPIResponse> instances_instance_key_groups_create_post(instance_key, data)
+> <APIResponse> instances_instance_key_groups_create_post(instance_key, data)
 
 Create group.
 
@@ -116,7 +116,7 @@ end
 
 api_instance = OpenapiClient::GroupManagementApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsGroupCreatePayload.new # StructsGroupCreatePayload | Group create payload
+data = OpenapiClient::GroupCreatePayload.new # GroupCreatePayload | Group create payload
 
 begin
   # Create group.
@@ -131,7 +131,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_create_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_create_post_with_http_info(instance_key, data)
 
 ```ruby
 begin
@@ -139,7 +139,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_create_post_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_create_post_with_http_info: #{e}"
 end
@@ -150,11 +150,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsGroupCreatePayload**](StructsGroupCreatePayload.md) | Group create payload |  |
+| **data** | [**GroupCreatePayload**](GroupCreatePayload.md) | Group create payload |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -168,7 +168,7 @@ end
 
 ## instances_instance_key_groups_get
 
-> <MainAPIResponse> instances_instance_key_groups_get(instance_key, opts)
+> <APIResponse> instances_instance_key_groups_get(instance_key, opts)
 
 Get all groups.
 
@@ -206,7 +206,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_get_with_http_info(instance_key, opts)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_get_with_http_info(instance_key, opts)
 
 ```ruby
 begin
@@ -214,7 +214,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_get_with_http_info(instance_key, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_get_with_http_info: #{e}"
 end
@@ -229,7 +229,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -243,7 +243,7 @@ end
 
 ## instances_instance_key_groups_group_id_announce_put
 
-> <MainAPIResponse> instances_instance_key_groups_group_id_announce_put(instance_key, announce, group_id)
+> <APIResponse> instances_instance_key_groups_group_id_announce_put(instance_key, announce, group_id)
 
 Set group announce.
 
@@ -280,7 +280,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_announce_put_with_http_info(instance_key, announce, group_id)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_announce_put_with_http_info(instance_key, announce, group_id)
 
 ```ruby
 begin
@@ -288,7 +288,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_group_id_announce_put_with_http_info(instance_key, announce, group_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_group_id_announce_put_with_http_info: #{e}"
 end
@@ -304,7 +304,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -318,7 +318,7 @@ end
 
 ## instances_instance_key_groups_group_id_delete
 
-> <MainAPIResponse> instances_instance_key_groups_group_id_delete(instance_key, group_id)
+> <APIResponse> instances_instance_key_groups_group_id_delete(instance_key, group_id)
 
 Leaves the group.
 
@@ -354,7 +354,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_delete_with_http_info(instance_key, group_id)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_delete_with_http_info(instance_key, group_id)
 
 ```ruby
 begin
@@ -362,7 +362,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_group_id_delete_with_http_info(instance_key, group_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_group_id_delete_with_http_info: #{e}"
 end
@@ -377,7 +377,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -391,7 +391,7 @@ end
 
 ## instances_instance_key_groups_group_id_description_put
 
-> <MainAPIResponse> instances_instance_key_groups_group_id_description_put(instance_key, group_id, data)
+> <APIResponse> instances_instance_key_groups_group_id_description_put(instance_key, group_id, data)
 
 Set group description.
 
@@ -413,7 +413,7 @@ end
 api_instance = OpenapiClient::GroupManagementApi.new
 instance_key = 'instance_key_example' # String | Instance key
 group_id = 'group_id_example' # String | Group id of the group
-data = OpenapiClient::StructsGroupUpdateDescriptionPayload.new # StructsGroupUpdateDescriptionPayload | Group description data
+data = OpenapiClient::GroupUpdateDescriptionPayload.new # GroupUpdateDescriptionPayload | Group description data
 
 begin
   # Set group description.
@@ -428,7 +428,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_description_put_with_http_info(instance_key, group_id, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_description_put_with_http_info(instance_key, group_id, data)
 
 ```ruby
 begin
@@ -436,7 +436,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_group_id_description_put_with_http_info(instance_key, group_id, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_group_id_description_put_with_http_info: #{e}"
 end
@@ -448,11 +448,11 @@ end
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
 | **group_id** | **String** | Group id of the group |  |
-| **data** | [**StructsGroupUpdateDescriptionPayload**](StructsGroupUpdateDescriptionPayload.md) | Group description data |  |
+| **data** | [**GroupUpdateDescriptionPayload**](GroupUpdateDescriptionPayload.md) | Group description data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -466,7 +466,7 @@ end
 
 ## instances_instance_key_groups_group_id_get
 
-> <MainAPIResponse> instances_instance_key_groups_group_id_get(instance_key, group_id)
+> <APIResponse> instances_instance_key_groups_group_id_get(instance_key, group_id)
 
 Get group.
 
@@ -502,7 +502,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_get_with_http_info(instance_key, group_id)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_get_with_http_info(instance_key, group_id)
 
 ```ruby
 begin
@@ -510,7 +510,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_group_id_get_with_http_info(instance_key, group_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_group_id_get_with_http_info: #{e}"
 end
@@ -525,7 +525,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -539,7 +539,7 @@ end
 
 ## instances_instance_key_groups_group_id_invite_code_get
 
-> <MainAPIResponse> instances_instance_key_groups_group_id_invite_code_get(instance_key, group_id)
+> <APIResponse> instances_instance_key_groups_group_id_invite_code_get(instance_key, group_id)
 
 Get group invite code.
 
@@ -575,7 +575,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_invite_code_get_with_http_info(instance_key, group_id)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_invite_code_get_with_http_info(instance_key, group_id)
 
 ```ruby
 begin
@@ -583,7 +583,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_group_id_invite_code_get_with_http_info(instance_key, group_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_group_id_invite_code_get_with_http_info: #{e}"
 end
@@ -598,7 +598,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -612,7 +612,7 @@ end
 
 ## instances_instance_key_groups_group_id_lock_put
 
-> <MainAPIResponse> instances_instance_key_groups_group_id_lock_put(instance_key, locked, group_id)
+> <APIResponse> instances_instance_key_groups_group_id_lock_put(instance_key, locked, group_id)
 
 Set group locked.
 
@@ -649,7 +649,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_lock_put_with_http_info(instance_key, locked, group_id)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_lock_put_with_http_info(instance_key, locked, group_id)
 
 ```ruby
 begin
@@ -657,7 +657,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_group_id_lock_put_with_http_info(instance_key, locked, group_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_group_id_lock_put_with_http_info: #{e}"
 end
@@ -673,7 +673,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -687,7 +687,7 @@ end
 
 ## instances_instance_key_groups_group_id_name_put
 
-> <MainAPIResponse> instances_instance_key_groups_group_id_name_put(instance_key, group_id, data)
+> <APIResponse> instances_instance_key_groups_group_id_name_put(instance_key, group_id, data)
 
 Set group name.
 
@@ -709,7 +709,7 @@ end
 api_instance = OpenapiClient::GroupManagementApi.new
 instance_key = 'instance_key_example' # String | Instance key
 group_id = 'group_id_example' # String | Group id of the group
-data = OpenapiClient::StructsGroupUpdateNamePayload.new # StructsGroupUpdateNamePayload | Group name data
+data = OpenapiClient::GroupUpdateNamePayload.new # GroupUpdateNamePayload | Group name data
 
 begin
   # Set group name.
@@ -724,7 +724,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_name_put_with_http_info(instance_key, group_id, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_name_put_with_http_info(instance_key, group_id, data)
 
 ```ruby
 begin
@@ -732,7 +732,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_group_id_name_put_with_http_info(instance_key, group_id, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_group_id_name_put_with_http_info: #{e}"
 end
@@ -744,11 +744,11 @@ end
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
 | **group_id** | **String** | Group id of the group |  |
-| **data** | [**StructsGroupUpdateNamePayload**](StructsGroupUpdateNamePayload.md) | Group name data |  |
+| **data** | [**GroupUpdateNamePayload**](GroupUpdateNamePayload.md) | Group name data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -762,7 +762,7 @@ end
 
 ## instances_instance_key_groups_group_id_participants_add_post
 
-> <MainAPIResponse> instances_instance_key_groups_group_id_participants_add_post(instance_key, group_id, data)
+> <APIResponse> instances_instance_key_groups_group_id_participants_add_post(instance_key, group_id, data)
 
 Add participant.
 
@@ -784,7 +784,7 @@ end
 api_instance = OpenapiClient::GroupManagementApi.new
 instance_key = 'instance_key_example' # String | Instance key
 group_id = 'group_id_example' # String | Group id of the group
-data = OpenapiClient::StructsGroupUpdateParticipantsPayload.new # StructsGroupUpdateParticipantsPayload | Group update payload
+data = OpenapiClient::GroupUpdateParticipantsPayload.new # GroupUpdateParticipantsPayload | Group update payload
 
 begin
   # Add participant.
@@ -799,7 +799,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_participants_add_post_with_http_info(instance_key, group_id, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_participants_add_post_with_http_info(instance_key, group_id, data)
 
 ```ruby
 begin
@@ -807,7 +807,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_group_id_participants_add_post_with_http_info(instance_key, group_id, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_group_id_participants_add_post_with_http_info: #{e}"
 end
@@ -819,11 +819,11 @@ end
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
 | **group_id** | **String** | Group id of the group |  |
-| **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md) | Group update payload |  |
+| **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -837,7 +837,7 @@ end
 
 ## instances_instance_key_groups_group_id_participants_demote_put
 
-> <MainAPIResponse> instances_instance_key_groups_group_id_participants_demote_put(instance_key, group_id, data)
+> <APIResponse> instances_instance_key_groups_group_id_participants_demote_put(instance_key, group_id, data)
 
 Demote participant.
 
@@ -859,7 +859,7 @@ end
 api_instance = OpenapiClient::GroupManagementApi.new
 instance_key = 'instance_key_example' # String | Instance key
 group_id = 'group_id_example' # String | Group id of the group
-data = OpenapiClient::StructsGroupUpdateParticipantsPayload.new # StructsGroupUpdateParticipantsPayload | Group update payload
+data = OpenapiClient::GroupUpdateParticipantsPayload.new # GroupUpdateParticipantsPayload | Group update payload
 
 begin
   # Demote participant.
@@ -874,7 +874,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_participants_demote_put_with_http_info(instance_key, group_id, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_participants_demote_put_with_http_info(instance_key, group_id, data)
 
 ```ruby
 begin
@@ -882,7 +882,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_group_id_participants_demote_put_with_http_info(instance_key, group_id, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_group_id_participants_demote_put_with_http_info: #{e}"
 end
@@ -894,11 +894,11 @@ end
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
 | **group_id** | **String** | Group id of the group |  |
-| **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md) | Group update payload |  |
+| **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -912,7 +912,7 @@ end
 
 ## instances_instance_key_groups_group_id_participants_promote_put
 
-> <MainAPIResponse> instances_instance_key_groups_group_id_participants_promote_put(instance_key, group_id, data)
+> <APIResponse> instances_instance_key_groups_group_id_participants_promote_put(instance_key, group_id, data)
 
 Promote participant.
 
@@ -934,7 +934,7 @@ end
 api_instance = OpenapiClient::GroupManagementApi.new
 instance_key = 'instance_key_example' # String | Instance key
 group_id = 'group_id_example' # String | Group id of the group
-data = OpenapiClient::StructsGroupUpdateParticipantsPayload.new # StructsGroupUpdateParticipantsPayload | Group update payload
+data = OpenapiClient::GroupUpdateParticipantsPayload.new # GroupUpdateParticipantsPayload | Group update payload
 
 begin
   # Promote participant.
@@ -949,7 +949,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_participants_promote_put_with_http_info(instance_key, group_id, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_participants_promote_put_with_http_info(instance_key, group_id, data)
 
 ```ruby
 begin
@@ -957,7 +957,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_group_id_participants_promote_put_with_http_info(instance_key, group_id, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_group_id_participants_promote_put_with_http_info: #{e}"
 end
@@ -969,11 +969,11 @@ end
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
 | **group_id** | **String** | Group id of the group |  |
-| **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md) | Group update payload |  |
+| **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -987,7 +987,7 @@ end
 
 ## instances_instance_key_groups_group_id_participants_remove_delete
 
-> <MainAPIResponse> instances_instance_key_groups_group_id_participants_remove_delete(instance_key, group_id, data)
+> <APIResponse> instances_instance_key_groups_group_id_participants_remove_delete(instance_key, group_id, data)
 
 Remove participant.
 
@@ -1009,7 +1009,7 @@ end
 api_instance = OpenapiClient::GroupManagementApi.new
 instance_key = 'instance_key_example' # String | Instance key
 group_id = 'group_id_example' # String | Group id of the group
-data = OpenapiClient::StructsGroupUpdateParticipantsPayload.new # StructsGroupUpdateParticipantsPayload | Group update payload
+data = OpenapiClient::GroupUpdateParticipantsPayload.new # GroupUpdateParticipantsPayload | Group update payload
 
 begin
   # Remove participant.
@@ -1024,7 +1024,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_participants_remove_delete_with_http_info(instance_key, group_id, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_participants_remove_delete_with_http_info(instance_key, group_id, data)
 
 ```ruby
 begin
@@ -1032,7 +1032,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_group_id_participants_remove_delete_with_http_info(instance_key, group_id, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_group_id_participants_remove_delete_with_http_info: #{e}"
 end
@@ -1044,11 +1044,11 @@ end
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
 | **group_id** | **String** | Group id of the group |  |
-| **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md) | Group update payload |  |
+| **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -1062,7 +1062,7 @@ end
 
 ## instances_instance_key_groups_group_id_profile_pic_put
 
-> <MainAPIResponse> instances_instance_key_groups_group_id_profile_pic_put(instance_key, group_id, instances_instance_key_groups_group_id_profile_pic_put_request)
+> <APIResponse> instances_instance_key_groups_group_id_profile_pic_put(instance_key, group_id, instances_instance_key_groups_group_id_profile_pic_put_request)
 
 Set group picture.
 
@@ -1099,7 +1099,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_profile_pic_put_with_http_info(instance_key, group_id, instances_instance_key_groups_group_id_profile_pic_put_request)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_group_id_profile_pic_put_with_http_info(instance_key, group_id, instances_instance_key_groups_group_id_profile_pic_put_request)
 
 ```ruby
 begin
@@ -1107,7 +1107,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_group_id_profile_pic_put_with_http_info(instance_key, group_id, instances_instance_key_groups_group_id_profile_pic_put_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_group_id_profile_pic_put_with_http_info: #{e}"
 end
@@ -1123,7 +1123,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -1137,7 +1137,7 @@ end
 
 ## instances_instance_key_groups_invite_info_get
 
-> <MainAPIResponse> instances_instance_key_groups_invite_info_get(instance_key, invite_link)
+> <APIResponse> instances_instance_key_groups_invite_info_get(instance_key, invite_link)
 
 Get group from invite link.
 
@@ -1173,7 +1173,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_groups_invite_info_get_with_http_info(instance_key, invite_link)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_groups_invite_info_get_with_http_info(instance_key, invite_link)
 
 ```ruby
 begin
@@ -1181,7 +1181,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_groups_invite_info_get_with_http_info(instance_key, invite_link)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling GroupManagementApi->instances_instance_key_groups_invite_info_get_with_http_info: #{e}"
 end
@@ -1196,7 +1196,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 

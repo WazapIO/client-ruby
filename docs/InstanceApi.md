@@ -16,7 +16,7 @@ All URIs are relative to */api*
 
 ## instances_create_get
 
-> <MainAPIResponse> instances_create_get(opts)
+> <APIResponse> instances_create_get(opts)
 
 Creates a new instance key.
 
@@ -53,7 +53,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_create_get_with_http_info(opts)
+> <Array(<APIResponse>, Integer, Hash)> instances_create_get_with_http_info(opts)
 
 ```ruby
 begin
@@ -61,7 +61,7 @@ begin
   data, status_code, headers = api_instance.instances_create_get_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling InstanceApi->instances_create_get_with_http_info: #{e}"
 end
@@ -75,7 +75,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ end
 
 ## instances_instance_key_contacts_get
 
-> <MainAPIResponse> instances_instance_key_contacts_get(instance_key)
+> <APIResponse> instances_instance_key_contacts_get(instance_key)
 
 Get contacts.
 
@@ -124,7 +124,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_contacts_get_with_http_info(instance_key)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_contacts_get_with_http_info(instance_key)
 
 ```ruby
 begin
@@ -132,7 +132,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_contacts_get_with_http_info(instance_key)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling InstanceApi->instances_instance_key_contacts_get_with_http_info: #{e}"
 end
@@ -146,7 +146,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ end
 
 ## instances_instance_key_delete_delete
 
-> <MainAPIResponse> instances_instance_key_delete_delete(instance_key)
+> <APIResponse> instances_instance_key_delete_delete(instance_key)
 
 Delete Instance.
 
@@ -195,7 +195,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_delete_delete_with_http_info(instance_key)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_delete_delete_with_http_info(instance_key)
 
 ```ruby
 begin
@@ -203,7 +203,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_delete_delete_with_http_info(instance_key)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling InstanceApi->instances_instance_key_delete_delete_with_http_info: #{e}"
 end
@@ -217,7 +217,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -231,7 +231,7 @@ end
 
 ## instances_instance_key_get
 
-> <MainAPIResponse> instances_instance_key_get(instance_key)
+> <APIResponse> instances_instance_key_get(instance_key)
 
 Get Instance.
 
@@ -266,7 +266,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_get_with_http_info(instance_key)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_get_with_http_info(instance_key)
 
 ```ruby
 begin
@@ -274,7 +274,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_get_with_http_info(instance_key)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling InstanceApi->instances_instance_key_get_with_http_info: #{e}"
 end
@@ -288,7 +288,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ end
 
 ## instances_instance_key_logout_delete
 
-> <MainAPIResponse> instances_instance_key_logout_delete(instance_key)
+> <APIResponse> instances_instance_key_logout_delete(instance_key)
 
 Logout Instance.
 
@@ -337,7 +337,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_logout_delete_with_http_info(instance_key)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_logout_delete_with_http_info(instance_key)
 
 ```ruby
 begin
@@ -345,7 +345,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_logout_delete_with_http_info(instance_key)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling InstanceApi->instances_instance_key_logout_delete_with_http_info: #{e}"
 end
@@ -359,7 +359,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -373,7 +373,7 @@ end
 
 ## instances_instance_key_qrcode_get
 
-> <MainAPIResponse> instances_instance_key_qrcode_get(instance_key)
+> <APIResponse> instances_instance_key_qrcode_get(instance_key)
 
 Get QrCode.
 
@@ -408,7 +408,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_qrcode_get_with_http_info(instance_key)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_qrcode_get_with_http_info(instance_key)
 
 ```ruby
 begin
@@ -416,7 +416,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_qrcode_get_with_http_info(instance_key)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling InstanceApi->instances_instance_key_qrcode_get_with_http_info: #{e}"
 end
@@ -430,7 +430,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -444,7 +444,7 @@ end
 
 ## instances_instance_key_webhook_put
 
-> <MainAPIResponse> instances_instance_key_webhook_put(instance_key, data)
+> <APIResponse> instances_instance_key_webhook_put(instance_key, data)
 
 Change Webhook url.
 
@@ -465,7 +465,7 @@ end
 
 api_instance = OpenapiClient::InstanceApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsWebhookPayload.new # StructsWebhookPayload | Message data
+data = OpenapiClient::WebhookPayload.new # WebhookPayload | Message data
 
 begin
   # Change Webhook url.
@@ -480,7 +480,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_webhook_put_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_webhook_put_with_http_info(instance_key, data)
 
 ```ruby
 begin
@@ -488,7 +488,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_webhook_put_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling InstanceApi->instances_instance_key_webhook_put_with_http_info: #{e}"
 end
@@ -499,11 +499,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsWebhookPayload**](StructsWebhookPayload.md) | Message data |  |
+| **data** | [**WebhookPayload**](WebhookPayload.md) | Message data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -517,7 +517,7 @@ end
 
 ## instances_list_get
 
-> <MainAPIResponse> instances_list_get
+> <APIResponse> instances_list_get
 
 Get all instances.
 
@@ -551,7 +551,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_list_get_with_http_info
+> <Array(<APIResponse>, Integer, Hash)> instances_list_get_with_http_info
 
 ```ruby
 begin
@@ -559,7 +559,7 @@ begin
   data, status_code, headers = api_instance.instances_list_get_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling InstanceApi->instances_list_get_with_http_info: #{e}"
 end
@@ -571,7 +571,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 

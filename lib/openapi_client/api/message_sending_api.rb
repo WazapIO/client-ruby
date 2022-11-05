@@ -19,69 +19,6 @@ module OpenapiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Fetches the catlog.
-    # Gets list of all products registered by you.
-    # @param instance_key [String] Instance key
-    # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
-    def instances_instance_key_business_catalog_get(instance_key, opts = {})
-      data, _status_code, _headers = instances_instance_key_business_catalog_get_with_http_info(instance_key, opts)
-      data
-    end
-
-    # Fetches the catlog.
-    # Gets list of all products registered by you.
-    # @param instance_key [String] Instance key
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
-    def instances_instance_key_business_catalog_get_with_http_info(instance_key, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_business_catalog_get ...'
-      end
-      # verify the required parameter 'instance_key' is set
-      if @api_client.config.client_side_validation && instance_key.nil?
-        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.instances_instance_key_business_catalog_get"
-      end
-      # resource path
-      local_var_path = '/instances/{instance_key}/business/catalog'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"MessageSendingApi.instances_instance_key_business_catalog_get",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageSendingApi#instances_instance_key_business_catalog_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Send raw audio.
     # Sends a audio message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
     # @param instance_key [String] Instance key
@@ -89,7 +26,7 @@ module OpenapiClient
     # @param instances_instance_key_send_audio_post_request [InstancesInstanceKeySendAudioPostRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_audio_post(instance_key, to, instances_instance_key_send_audio_post_request, opts = {})
       data, _status_code, _headers = instances_instance_key_send_audio_post_with_http_info(instance_key, to, instances_instance_key_send_audio_post_request, opts)
       data
@@ -102,7 +39,7 @@ module OpenapiClient
     # @param instances_instance_key_send_audio_post_request [InstancesInstanceKeySendAudioPostRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_audio_post_with_http_info(instance_key, to, instances_instance_key_send_audio_post_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_audio_post ...'
@@ -144,7 +81,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(instances_instance_key_send_audio_post_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -169,9 +106,9 @@ module OpenapiClient
     # Send a button message with a media header.
     # Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
     # @param instance_key [String] Instance key
-    # @param data [StructsButtonMessageWithMediaPayload] Message data
+    # @param data [ButtonMessageWithMediaPayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_button_media_post(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_send_button_media_post_with_http_info(instance_key, data, opts)
       data
@@ -180,9 +117,9 @@ module OpenapiClient
     # Send a button message with a media header.
     # Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
     # @param instance_key [String] Instance key
-    # @param data [StructsButtonMessageWithMediaPayload] Message data
+    # @param data [ButtonMessageWithMediaPayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_button_media_post_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_button_media_post ...'
@@ -218,7 +155,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -243,9 +180,9 @@ module OpenapiClient
     # Send a button message.
     # Sends an interactive button message to the given user. Make sure that all the button ids are unique
     # @param instance_key [String] Instance key
-    # @param data [StructsButtonMessagePayload] Message data
+    # @param data [ButtonMessagePayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_buttons_post(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_send_buttons_post_with_http_info(instance_key, data, opts)
       data
@@ -254,9 +191,9 @@ module OpenapiClient
     # Send a button message.
     # Sends an interactive button message to the given user. Make sure that all the button ids are unique
     # @param instance_key [String] Instance key
-    # @param data [StructsButtonMessagePayload] Message data
+    # @param data [ButtonMessagePayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_buttons_post_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_buttons_post ...'
@@ -292,7 +229,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -317,9 +254,9 @@ module OpenapiClient
     # Send a contact message.
     # Sends a contact (vcard) message to the given user.
     # @param instance_key [String] Instance key
-    # @param data [StructsContactMessagePayload] Message data
+    # @param data [ContactMessagePayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_contact_post(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_send_contact_post_with_http_info(instance_key, data, opts)
       data
@@ -328,9 +265,9 @@ module OpenapiClient
     # Send a contact message.
     # Sends a contact (vcard) message to the given user.
     # @param instance_key [String] Instance key
-    # @param data [StructsContactMessagePayload] Message data
+    # @param data [ContactMessagePayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_contact_post_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_contact_post ...'
@@ -366,7 +303,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -395,7 +332,7 @@ module OpenapiClient
     # @param instances_instance_key_send_document_post_request [InstancesInstanceKeySendDocumentPostRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_document_post(instance_key, to, instances_instance_key_send_document_post_request, opts = {})
       data, _status_code, _headers = instances_instance_key_send_document_post_with_http_info(instance_key, to, instances_instance_key_send_document_post_request, opts)
       data
@@ -408,7 +345,7 @@ module OpenapiClient
     # @param instances_instance_key_send_document_post_request [InstancesInstanceKeySendDocumentPostRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_document_post_with_http_info(instance_key, to, instances_instance_key_send_document_post_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_document_post ...'
@@ -450,7 +387,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(instances_instance_key_send_document_post_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -479,7 +416,7 @@ module OpenapiClient
     # @param instances_instance_key_send_image_post_request [InstancesInstanceKeySendImagePostRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_image_post(instance_key, to, instances_instance_key_send_image_post_request, opts = {})
       data, _status_code, _headers = instances_instance_key_send_image_post_with_http_info(instance_key, to, instances_instance_key_send_image_post_request, opts)
       data
@@ -492,7 +429,7 @@ module OpenapiClient
     # @param instances_instance_key_send_image_post_request [InstancesInstanceKeySendImagePostRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_image_post_with_http_info(instance_key, to, instances_instance_key_send_image_post_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_image_post ...'
@@ -534,7 +471,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(instances_instance_key_send_image_post_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -559,9 +496,9 @@ module OpenapiClient
     # Send a List message.
     # Sends an interactive List message to the given user.
     # @param instance_key [String] Instance key
-    # @param data [StructsListMessagePayload] Message data
+    # @param data [ListMessagePayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_list_post(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_send_list_post_with_http_info(instance_key, data, opts)
       data
@@ -570,9 +507,9 @@ module OpenapiClient
     # Send a List message.
     # Sends an interactive List message to the given user.
     # @param instance_key [String] Instance key
-    # @param data [StructsListMessagePayload] Message data
+    # @param data [ListMessagePayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_list_post_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_list_post ...'
@@ -608,7 +545,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -633,9 +570,9 @@ module OpenapiClient
     # Send a location message.
     # Sends a location message to the given user. This is static location and does not update Note: The Address and Url fields are optional
     # @param instance_key [String] Instance key
-    # @param data [StructsLocationMessagePayload] Message data
+    # @param data [LocationMessagePayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_location_post(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_send_location_post_with_http_info(instance_key, data, opts)
       data
@@ -644,9 +581,9 @@ module OpenapiClient
     # Send a location message.
     # Sends a location message to the given user. This is static location and does not update Note: The Address and Url fields are optional
     # @param instance_key [String] Instance key
-    # @param data [StructsLocationMessagePayload] Message data
+    # @param data [LocationMessagePayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_location_post_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_location_post ...'
@@ -682,7 +619,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -707,9 +644,9 @@ module OpenapiClient
     # Send a media message.
     # Sends a media message to the given user.
     # @param instance_key [String] Instance key
-    # @param data [StructsSendMediaPayload] Message data
+    # @param data [SendMediaPayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_media_post(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_send_media_post_with_http_info(instance_key, data, opts)
       data
@@ -718,9 +655,9 @@ module OpenapiClient
     # Send a media message.
     # Sends a media message to the given user.
     # @param instance_key [String] Instance key
-    # @param data [StructsSendMediaPayload] Message data
+    # @param data [SendMediaPayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_media_post_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_media_post ...'
@@ -756,7 +693,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -778,23 +715,23 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Send a Poll message with media.
-    # Sends an interactive poll message with a media header to the given user. The poll message is a new feature that is currently in beta.
+    # Send a Poll message.
+    # Sends an interactive poll message to the given user. The poll message is a new feature that is currently in beta.
     # @param instance_key [String] Instance key
-    # @param data [StructsPollMessagePayload] Message data
+    # @param data [PollMessagePayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_poll_post(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_send_poll_post_with_http_info(instance_key, data, opts)
       data
     end
 
-    # Send a Poll message with media.
-    # Sends an interactive poll message with a media header to the given user. The poll message is a new feature that is currently in beta.
+    # Send a Poll message.
+    # Sends an interactive poll message to the given user. The poll message is a new feature that is currently in beta.
     # @param instance_key [String] Instance key
-    # @param data [StructsPollMessagePayload] Message data
+    # @param data [PollMessagePayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_poll_post_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_poll_post ...'
@@ -830,7 +767,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -855,9 +792,9 @@ module OpenapiClient
     # Send a template message with media.
     # Sends an interactive template message with a media header to the given user. Note: The valid button types are \"replyButton\", \"urlButton\", \"callButton\"
     # @param instance_key [String] Instance key
-    # @param data [StructsTemplateButtonWithMediaPayload] Message data
+    # @param data [TemplateButtonWithMediaPayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_template_media_post(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_send_template_media_post_with_http_info(instance_key, data, opts)
       data
@@ -866,9 +803,9 @@ module OpenapiClient
     # Send a template message with media.
     # Sends an interactive template message with a media header to the given user. Note: The valid button types are \&quot;replyButton\&quot;, \&quot;urlButton\&quot;, \&quot;callButton\&quot;
     # @param instance_key [String] Instance key
-    # @param data [StructsTemplateButtonWithMediaPayload] Message data
+    # @param data [TemplateButtonWithMediaPayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_template_media_post_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_template_media_post ...'
@@ -904,7 +841,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -929,9 +866,9 @@ module OpenapiClient
     # Send a template message.
     # Sends an interactive template message to the given user. Note: The valid button types are \"replyButton\", \"urlButton\", \"callButton\"
     # @param instance_key [String] Instance key
-    # @param data [StructsTemplateButtonPayload] Message data
+    # @param data [TemplateButtonPayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_template_post(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_send_template_post_with_http_info(instance_key, data, opts)
       data
@@ -940,9 +877,9 @@ module OpenapiClient
     # Send a template message.
     # Sends an interactive template message to the given user. Note: The valid button types are \&quot;replyButton\&quot;, \&quot;urlButton\&quot;, \&quot;callButton\&quot;
     # @param instance_key [String] Instance key
-    # @param data [StructsTemplateButtonPayload] Message data
+    # @param data [TemplateButtonPayload] Message data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_template_post_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_template_post ...'
@@ -978,7 +915,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -1003,9 +940,9 @@ module OpenapiClient
     # Send a text message.
     # Sends a text message to the given user.
     # @param instance_key [String] Instance key
-    # @param data [StructsTextMessage] Message data
+    # @param data [TextMessage] Message data
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_text_post(instance_key, data, opts = {})
       data, _status_code, _headers = instances_instance_key_send_text_post_with_http_info(instance_key, data, opts)
       data
@@ -1014,9 +951,9 @@ module OpenapiClient
     # Send a text message.
     # Sends a text message to the given user.
     # @param instance_key [String] Instance key
-    # @param data [StructsTextMessage] Message data
+    # @param data [TextMessage] Message data
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_text_post_with_http_info(instance_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_text_post ...'
@@ -1052,7 +989,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -1080,7 +1017,7 @@ module OpenapiClient
     # @param type [String] Media type
     # @param instances_instance_key_send_upload_post_request [InstancesInstanceKeySendUploadPostRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_upload_post(instance_key, type, instances_instance_key_send_upload_post_request, opts = {})
       data, _status_code, _headers = instances_instance_key_send_upload_post_with_http_info(instance_key, type, instances_instance_key_send_upload_post_request, opts)
       data
@@ -1092,7 +1029,7 @@ module OpenapiClient
     # @param type [String] Media type
     # @param instances_instance_key_send_upload_post_request [InstancesInstanceKeySendUploadPostRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_upload_post_with_http_info(instance_key, type, instances_instance_key_send_upload_post_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_upload_post ...'
@@ -1138,7 +1075,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(instances_instance_key_send_upload_post_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
@@ -1167,7 +1104,7 @@ module OpenapiClient
     # @param instances_instance_key_send_video_post_request [InstancesInstanceKeySendVideoPostRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
-    # @return [MainAPIResponse]
+    # @return [APIResponse]
     def instances_instance_key_send_video_post(instance_key, to, instances_instance_key_send_video_post_request, opts = {})
       data, _status_code, _headers = instances_instance_key_send_video_post_with_http_info(instance_key, to, instances_instance_key_send_video_post_request, opts)
       data
@@ -1180,7 +1117,7 @@ module OpenapiClient
     # @param instances_instance_key_send_video_post_request [InstancesInstanceKeySendVideoPostRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
-    # @return [Array<(MainAPIResponse, Integer, Hash)>] MainAPIResponse data, response status code and response headers
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
     def instances_instance_key_send_video_post_with_http_info(instance_key, to, instances_instance_key_send_video_post_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.instances_instance_key_send_video_post ...'
@@ -1222,7 +1159,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(instances_instance_key_send_video_post_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MainAPIResponse'
+      return_type = opts[:debug_return_type] || 'APIResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']

@@ -64,15 +64,15 @@ OpenapiClient.configure do |config|
   # config.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 end
 
-api_instance = OpenapiClient::GroupManagementApi.new
+api_instance = OpenapiClient::BusinessManagementApi.new
 instance_key = 'instance_key_example' # String | Instance key
 
 begin
-  #Get admin groupss.
-  result = api_instance.instances_instance_key_groups_admin_get(instance_key)
+  #Fetches the catlog.
+  result = api_instance.instances_instance_key_business_catalog_get(instance_key)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling GroupManagementApi->instances_instance_key_groups_admin_get: #{e}"
+  puts "Exception when calling BusinessManagementApi->instances_instance_key_business_catalog_get: #{e}"
 end
 
 ```
@@ -83,6 +83,7 @@ All URIs are relative to */api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*OpenapiClient::BusinessManagementApi* | [**instances_instance_key_business_catalog_get**](docs/BusinessManagementApi.md#instances_instance_key_business_catalog_get) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog.
 *OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_admin_get**](docs/GroupManagementApi.md#instances_instance_key_groups_admin_get) | **GET** /instances/{instance_key}/groups/admin | Get admin groupss.
 *OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_create_post**](docs/GroupManagementApi.md#instances_instance_key_groups_create_post) | **POST** /instances/{instance_key}/groups/create | Create group.
 *OpenapiClient::GroupManagementApi* | [**instances_instance_key_groups_get**](docs/GroupManagementApi.md#instances_instance_key_groups_get) | **GET** /instances/{instance_key}/groups/ | Get all groups.
@@ -107,7 +108,6 @@ Class | Method | HTTP request | Description
 *OpenapiClient::InstanceApi* | [**instances_instance_key_qrcode_get**](docs/InstanceApi.md#instances_instance_key_qrcode_get) | **GET** /instances/{instance_key}/qrcode | Get QrCode.
 *OpenapiClient::InstanceApi* | [**instances_instance_key_webhook_put**](docs/InstanceApi.md#instances_instance_key_webhook_put) | **PUT** /instances/{instance_key}/webhook | Change Webhook url.
 *OpenapiClient::InstanceApi* | [**instances_list_get**](docs/InstanceApi.md#instances_list_get) | **GET** /instances/list | Get all instances.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_business_catalog_get**](docs/MessageSendingApi.md#instances_instance_key_business_catalog_get) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog.
 *OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_audio_post**](docs/MessageSendingApi.md#instances_instance_key_send_audio_post) | **POST** /instances/{instance_key}/send/audio | Send raw audio.
 *OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_button_media_post**](docs/MessageSendingApi.md#instances_instance_key_send_button_media_post) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header.
 *OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_buttons_post**](docs/MessageSendingApi.md#instances_instance_key_send_buttons_post) | **POST** /instances/{instance_key}/send/buttons | Send a button message.
@@ -117,7 +117,7 @@ Class | Method | HTTP request | Description
 *OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_list_post**](docs/MessageSendingApi.md#instances_instance_key_send_list_post) | **POST** /instances/{instance_key}/send/list | Send a List message.
 *OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_location_post**](docs/MessageSendingApi.md#instances_instance_key_send_location_post) | **POST** /instances/{instance_key}/send/location | Send a location message.
 *OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_media_post**](docs/MessageSendingApi.md#instances_instance_key_send_media_post) | **POST** /instances/{instance_key}/send/media | Send a media message.
-*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_poll_post**](docs/MessageSendingApi.md#instances_instance_key_send_poll_post) | **POST** /instances/{instance_key}/send/poll | Send a Poll message with media.
+*OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_poll_post**](docs/MessageSendingApi.md#instances_instance_key_send_poll_post) | **POST** /instances/{instance_key}/send/poll | Send a Poll message.
 *OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_template_media_post**](docs/MessageSendingApi.md#instances_instance_key_send_template_media_post) | **POST** /instances/{instance_key}/send/template-media | Send a template message with media.
 *OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_template_post**](docs/MessageSendingApi.md#instances_instance_key_send_template_post) | **POST** /instances/{instance_key}/send/template | Send a template message.
 *OpenapiClient::MessageSendingApi* | [**instances_instance_key_send_text_post**](docs/MessageSendingApi.md#instances_instance_key_send_text_post) | **POST** /instances/{instance_key}/send/text | Send a text message.
@@ -129,36 +129,36 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [OpenapiClient::APIResponse](docs/APIResponse.md)
+ - [OpenapiClient::ButtonMessagePayload](docs/ButtonMessagePayload.md)
+ - [OpenapiClient::ButtonMessageWithMediaPayload](docs/ButtonMessageWithMediaPayload.md)
+ - [OpenapiClient::ContactMessagePayload](docs/ContactMessagePayload.md)
+ - [OpenapiClient::ContactMessagePayloadVcard](docs/ContactMessagePayloadVcard.md)
+ - [OpenapiClient::FileUpload](docs/FileUpload.md)
+ - [OpenapiClient::GroupCreatePayload](docs/GroupCreatePayload.md)
+ - [OpenapiClient::GroupUpdateDescriptionPayload](docs/GroupUpdateDescriptionPayload.md)
+ - [OpenapiClient::GroupUpdateNamePayload](docs/GroupUpdateNamePayload.md)
+ - [OpenapiClient::GroupUpdateParticipantsPayload](docs/GroupUpdateParticipantsPayload.md)
  - [OpenapiClient::InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest](docs/InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest.md)
  - [OpenapiClient::InstancesInstanceKeySendAudioPostRequest](docs/InstancesInstanceKeySendAudioPostRequest.md)
  - [OpenapiClient::InstancesInstanceKeySendDocumentPostRequest](docs/InstancesInstanceKeySendDocumentPostRequest.md)
  - [OpenapiClient::InstancesInstanceKeySendImagePostRequest](docs/InstancesInstanceKeySendImagePostRequest.md)
  - [OpenapiClient::InstancesInstanceKeySendUploadPostRequest](docs/InstancesInstanceKeySendUploadPostRequest.md)
  - [OpenapiClient::InstancesInstanceKeySendVideoPostRequest](docs/InstancesInstanceKeySendVideoPostRequest.md)
- - [OpenapiClient::MainAPIResponse](docs/MainAPIResponse.md)
- - [OpenapiClient::StructsButtonMessagePayload](docs/StructsButtonMessagePayload.md)
- - [OpenapiClient::StructsButtonMessageWithMediaPayload](docs/StructsButtonMessageWithMediaPayload.md)
- - [OpenapiClient::StructsContactMessagePayload](docs/StructsContactMessagePayload.md)
- - [OpenapiClient::StructsContactMessagePayloadVcard](docs/StructsContactMessagePayloadVcard.md)
- - [OpenapiClient::StructsFileUpload](docs/StructsFileUpload.md)
- - [OpenapiClient::StructsGroupCreatePayload](docs/StructsGroupCreatePayload.md)
- - [OpenapiClient::StructsGroupUpdateDescriptionPayload](docs/StructsGroupUpdateDescriptionPayload.md)
- - [OpenapiClient::StructsGroupUpdateNamePayload](docs/StructsGroupUpdateNamePayload.md)
- - [OpenapiClient::StructsGroupUpdateParticipantsPayload](docs/StructsGroupUpdateParticipantsPayload.md)
- - [OpenapiClient::StructsListItem](docs/StructsListItem.md)
- - [OpenapiClient::StructsListMessagePayload](docs/StructsListMessagePayload.md)
- - [OpenapiClient::StructsListSection](docs/StructsListSection.md)
- - [OpenapiClient::StructsLocationMessagePayload](docs/StructsLocationMessagePayload.md)
- - [OpenapiClient::StructsLocationMessagePayloadLocation](docs/StructsLocationMessagePayloadLocation.md)
- - [OpenapiClient::StructsPollMessagePayload](docs/StructsPollMessagePayload.md)
- - [OpenapiClient::StructsReplyButton](docs/StructsReplyButton.md)
- - [OpenapiClient::StructsSendMediaPayload](docs/StructsSendMediaPayload.md)
- - [OpenapiClient::StructsTemplateButton](docs/StructsTemplateButton.md)
- - [OpenapiClient::StructsTemplateButtonPayload](docs/StructsTemplateButtonPayload.md)
- - [OpenapiClient::StructsTemplateButtonWithMediaPayload](docs/StructsTemplateButtonWithMediaPayload.md)
- - [OpenapiClient::StructsTextMessage](docs/StructsTextMessage.md)
- - [OpenapiClient::StructsUserInfoPayload](docs/StructsUserInfoPayload.md)
- - [OpenapiClient::StructsWebhookPayload](docs/StructsWebhookPayload.md)
+ - [OpenapiClient::ListItem](docs/ListItem.md)
+ - [OpenapiClient::ListMessagePayload](docs/ListMessagePayload.md)
+ - [OpenapiClient::ListSection](docs/ListSection.md)
+ - [OpenapiClient::LocationMessagePayload](docs/LocationMessagePayload.md)
+ - [OpenapiClient::LocationMessagePayloadLocation](docs/LocationMessagePayloadLocation.md)
+ - [OpenapiClient::PollMessagePayload](docs/PollMessagePayload.md)
+ - [OpenapiClient::ReplyButton](docs/ReplyButton.md)
+ - [OpenapiClient::SendMediaPayload](docs/SendMediaPayload.md)
+ - [OpenapiClient::TemplateButton](docs/TemplateButton.md)
+ - [OpenapiClient::TemplateButtonPayload](docs/TemplateButtonPayload.md)
+ - [OpenapiClient::TemplateButtonWithMediaPayload](docs/TemplateButtonWithMediaPayload.md)
+ - [OpenapiClient::TextMessage](docs/TextMessage.md)
+ - [OpenapiClient::UserInfoPayload](docs/UserInfoPayload.md)
+ - [OpenapiClient::WebhookPayload](docs/WebhookPayload.md)
 
 
 ## Documentation for Authorization

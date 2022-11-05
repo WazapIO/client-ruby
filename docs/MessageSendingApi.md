@@ -4,7 +4,6 @@ All URIs are relative to */api*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**instances_instance_key_business_catalog_get**](MessageSendingApi.md#instances_instance_key_business_catalog_get) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog. |
 | [**instances_instance_key_send_audio_post**](MessageSendingApi.md#instances_instance_key_send_audio_post) | **POST** /instances/{instance_key}/send/audio | Send raw audio. |
 | [**instances_instance_key_send_button_media_post**](MessageSendingApi.md#instances_instance_key_send_button_media_post) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header. |
 | [**instances_instance_key_send_buttons_post**](MessageSendingApi.md#instances_instance_key_send_buttons_post) | **POST** /instances/{instance_key}/send/buttons | Send a button message. |
@@ -14,7 +13,7 @@ All URIs are relative to */api*
 | [**instances_instance_key_send_list_post**](MessageSendingApi.md#instances_instance_key_send_list_post) | **POST** /instances/{instance_key}/send/list | Send a List message. |
 | [**instances_instance_key_send_location_post**](MessageSendingApi.md#instances_instance_key_send_location_post) | **POST** /instances/{instance_key}/send/location | Send a location message. |
 | [**instances_instance_key_send_media_post**](MessageSendingApi.md#instances_instance_key_send_media_post) | **POST** /instances/{instance_key}/send/media | Send a media message. |
-| [**instances_instance_key_send_poll_post**](MessageSendingApi.md#instances_instance_key_send_poll_post) | **POST** /instances/{instance_key}/send/poll | Send a Poll message with media. |
+| [**instances_instance_key_send_poll_post**](MessageSendingApi.md#instances_instance_key_send_poll_post) | **POST** /instances/{instance_key}/send/poll | Send a Poll message. |
 | [**instances_instance_key_send_template_media_post**](MessageSendingApi.md#instances_instance_key_send_template_media_post) | **POST** /instances/{instance_key}/send/template-media | Send a template message with media. |
 | [**instances_instance_key_send_template_post**](MessageSendingApi.md#instances_instance_key_send_template_post) | **POST** /instances/{instance_key}/send/template | Send a template message. |
 | [**instances_instance_key_send_text_post**](MessageSendingApi.md#instances_instance_key_send_text_post) | **POST** /instances/{instance_key}/send/text | Send a text message. |
@@ -22,80 +21,9 @@ All URIs are relative to */api*
 | [**instances_instance_key_send_video_post**](MessageSendingApi.md#instances_instance_key_send_video_post) | **POST** /instances/{instance_key}/send/video | Send raw video. |
 
 
-## instances_instance_key_business_catalog_get
-
-> <MainAPIResponse> instances_instance_key_business_catalog_get(instance_key)
-
-Fetches the catlog.
-
-Gets list of all products registered by you.
-
-### Examples
-
-```ruby
-require 'time'
-require 'openapi_client'
-# setup authorization
-OpenapiClient.configure do |config|
-  # Configure API key authorization: ApiKeyAuth
-  config.api_key['ApiKeyAuth'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['ApiKeyAuth'] = 'Bearer'
-end
-
-api_instance = OpenapiClient::MessageSendingApi.new
-instance_key = 'instance_key_example' # String | Instance key
-
-begin
-  # Fetches the catlog.
-  result = api_instance.instances_instance_key_business_catalog_get(instance_key)
-  p result
-rescue OpenapiClient::ApiError => e
-  puts "Error when calling MessageSendingApi->instances_instance_key_business_catalog_get: #{e}"
-end
-```
-
-#### Using the instances_instance_key_business_catalog_get_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_business_catalog_get_with_http_info(instance_key)
-
-```ruby
-begin
-  # Fetches the catlog.
-  data, status_code, headers = api_instance.instances_instance_key_business_catalog_get_with_http_info(instance_key)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <MainAPIResponse>
-rescue OpenapiClient::ApiError => e
-  puts "Error when calling MessageSendingApi->instances_instance_key_business_catalog_get_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **instance_key** | **String** | Instance key |  |
-
-### Return type
-
-[**MainAPIResponse**](MainAPIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: */*
-
-
 ## instances_instance_key_send_audio_post
 
-> <MainAPIResponse> instances_instance_key_send_audio_post(instance_key, to, instances_instance_key_send_audio_post_request, opts)
+> <APIResponse> instances_instance_key_send_audio_post(instance_key, to, instances_instance_key_send_audio_post_request, opts)
 
 Send raw audio.
 
@@ -135,7 +63,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_audio_post_with_http_info(instance_key, to, instances_instance_key_send_audio_post_request, opts)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_audio_post_with_http_info(instance_key, to, instances_instance_key_send_audio_post_request, opts)
 
 ```ruby
 begin
@@ -143,7 +71,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_audio_post_with_http_info(instance_key, to, instances_instance_key_send_audio_post_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_audio_post_with_http_info: #{e}"
 end
@@ -160,7 +88,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -174,7 +102,7 @@ end
 
 ## instances_instance_key_send_button_media_post
 
-> <MainAPIResponse> instances_instance_key_send_button_media_post(instance_key, data)
+> <APIResponse> instances_instance_key_send_button_media_post(instance_key, data)
 
 Send a button message with a media header.
 
@@ -195,7 +123,7 @@ end
 
 api_instance = OpenapiClient::MessageSendingApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsButtonMessageWithMediaPayload.new # StructsButtonMessageWithMediaPayload | Message data
+data = OpenapiClient::ButtonMessageWithMediaPayload.new # ButtonMessageWithMediaPayload | Message data
 
 begin
   # Send a button message with a media header.
@@ -210,7 +138,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_button_media_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_button_media_post_with_http_info(instance_key, data)
 
 ```ruby
 begin
@@ -218,7 +146,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_button_media_post_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_button_media_post_with_http_info: #{e}"
 end
@@ -229,11 +157,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsButtonMessageWithMediaPayload**](StructsButtonMessageWithMediaPayload.md) | Message data |  |
+| **data** | [**ButtonMessageWithMediaPayload**](ButtonMessageWithMediaPayload.md) | Message data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -247,7 +175,7 @@ end
 
 ## instances_instance_key_send_buttons_post
 
-> <MainAPIResponse> instances_instance_key_send_buttons_post(instance_key, data)
+> <APIResponse> instances_instance_key_send_buttons_post(instance_key, data)
 
 Send a button message.
 
@@ -268,7 +196,7 @@ end
 
 api_instance = OpenapiClient::MessageSendingApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsButtonMessagePayload.new # StructsButtonMessagePayload | Message data
+data = OpenapiClient::ButtonMessagePayload.new # ButtonMessagePayload | Message data
 
 begin
   # Send a button message.
@@ -283,7 +211,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_buttons_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_buttons_post_with_http_info(instance_key, data)
 
 ```ruby
 begin
@@ -291,7 +219,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_buttons_post_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_buttons_post_with_http_info: #{e}"
 end
@@ -302,11 +230,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsButtonMessagePayload**](StructsButtonMessagePayload.md) | Message data |  |
+| **data** | [**ButtonMessagePayload**](ButtonMessagePayload.md) | Message data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -320,7 +248,7 @@ end
 
 ## instances_instance_key_send_contact_post
 
-> <MainAPIResponse> instances_instance_key_send_contact_post(instance_key, data)
+> <APIResponse> instances_instance_key_send_contact_post(instance_key, data)
 
 Send a contact message.
 
@@ -341,7 +269,7 @@ end
 
 api_instance = OpenapiClient::MessageSendingApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsContactMessagePayload.new({to: 'to_example', vcard: OpenapiClient::StructsContactMessagePayloadVcard.new}) # StructsContactMessagePayload | Message data
+data = OpenapiClient::ContactMessagePayload.new({to: 'to_example', vcard: OpenapiClient::ContactMessagePayloadVcard.new}) # ContactMessagePayload | Message data
 
 begin
   # Send a contact message.
@@ -356,7 +284,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_contact_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_contact_post_with_http_info(instance_key, data)
 
 ```ruby
 begin
@@ -364,7 +292,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_contact_post_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_contact_post_with_http_info: #{e}"
 end
@@ -375,11 +303,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsContactMessagePayload**](StructsContactMessagePayload.md) | Message data |  |
+| **data** | [**ContactMessagePayload**](ContactMessagePayload.md) | Message data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -393,7 +321,7 @@ end
 
 ## instances_instance_key_send_document_post
 
-> <MainAPIResponse> instances_instance_key_send_document_post(instance_key, to, instances_instance_key_send_document_post_request, opts)
+> <APIResponse> instances_instance_key_send_document_post(instance_key, to, instances_instance_key_send_document_post_request, opts)
 
 Send raw document.
 
@@ -433,7 +361,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_document_post_with_http_info(instance_key, to, instances_instance_key_send_document_post_request, opts)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_document_post_with_http_info(instance_key, to, instances_instance_key_send_document_post_request, opts)
 
 ```ruby
 begin
@@ -441,7 +369,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_document_post_with_http_info(instance_key, to, instances_instance_key_send_document_post_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_document_post_with_http_info: #{e}"
 end
@@ -458,7 +386,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -472,7 +400,7 @@ end
 
 ## instances_instance_key_send_image_post
 
-> <MainAPIResponse> instances_instance_key_send_image_post(instance_key, to, instances_instance_key_send_image_post_request, opts)
+> <APIResponse> instances_instance_key_send_image_post(instance_key, to, instances_instance_key_send_image_post_request, opts)
 
 Send raw image.
 
@@ -512,7 +440,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_image_post_with_http_info(instance_key, to, instances_instance_key_send_image_post_request, opts)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_image_post_with_http_info(instance_key, to, instances_instance_key_send_image_post_request, opts)
 
 ```ruby
 begin
@@ -520,7 +448,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_image_post_with_http_info(instance_key, to, instances_instance_key_send_image_post_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_image_post_with_http_info: #{e}"
 end
@@ -537,7 +465,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -551,7 +479,7 @@ end
 
 ## instances_instance_key_send_list_post
 
-> <MainAPIResponse> instances_instance_key_send_list_post(instance_key, data)
+> <APIResponse> instances_instance_key_send_list_post(instance_key, data)
 
 Send a List message.
 
@@ -572,7 +500,7 @@ end
 
 api_instance = OpenapiClient::MessageSendingApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsListMessagePayload.new({sections: [OpenapiClient::StructsListSection.new({rows: [OpenapiClient::StructsListItem.new({title: 'title_example'})], title: 'title_example'})], to: 'to_example'}) # StructsListMessagePayload | Message data
+data = OpenapiClient::ListMessagePayload.new({sections: [OpenapiClient::ListSection.new({rows: [OpenapiClient::ListItem.new({title: 'title_example'})], title: 'title_example'})], to: 'to_example'}) # ListMessagePayload | Message data
 
 begin
   # Send a List message.
@@ -587,7 +515,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_list_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_list_post_with_http_info(instance_key, data)
 
 ```ruby
 begin
@@ -595,7 +523,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_list_post_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_list_post_with_http_info: #{e}"
 end
@@ -606,11 +534,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsListMessagePayload**](StructsListMessagePayload.md) | Message data |  |
+| **data** | [**ListMessagePayload**](ListMessagePayload.md) | Message data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -624,7 +552,7 @@ end
 
 ## instances_instance_key_send_location_post
 
-> <MainAPIResponse> instances_instance_key_send_location_post(instance_key, data)
+> <APIResponse> instances_instance_key_send_location_post(instance_key, data)
 
 Send a location message.
 
@@ -645,7 +573,7 @@ end
 
 api_instance = OpenapiClient::MessageSendingApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsLocationMessagePayload.new({location: OpenapiClient::StructsLocationMessagePayloadLocation.new({latitude: 3.56, longitude: 3.56, name: 'name_example'}), to: 'to_example'}) # StructsLocationMessagePayload | Message data
+data = OpenapiClient::LocationMessagePayload.new({location: OpenapiClient::LocationMessagePayloadLocation.new({latitude: 3.56, longitude: 3.56, name: 'name_example'}), to: 'to_example'}) # LocationMessagePayload | Message data
 
 begin
   # Send a location message.
@@ -660,7 +588,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_location_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_location_post_with_http_info(instance_key, data)
 
 ```ruby
 begin
@@ -668,7 +596,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_location_post_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_location_post_with_http_info: #{e}"
 end
@@ -679,11 +607,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsLocationMessagePayload**](StructsLocationMessagePayload.md) | Message data |  |
+| **data** | [**LocationMessagePayload**](LocationMessagePayload.md) | Message data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -697,7 +625,7 @@ end
 
 ## instances_instance_key_send_media_post
 
-> <MainAPIResponse> instances_instance_key_send_media_post(instance_key, data)
+> <APIResponse> instances_instance_key_send_media_post(instance_key, data)
 
 Send a media message.
 
@@ -718,7 +646,7 @@ end
 
 api_instance = OpenapiClient::MessageSendingApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsSendMediaPayload.new({media_data: OpenapiClient::StructsFileUpload.new({direct_path: 'direct_path_example', file_enc_sha256: [37], file_length: 37, file_sha256: [37], media_key: [37], mime_type: 'mime_type_example', url: 'url_example'}), media_type: 'media_type_example', to: 'to_example'}) # StructsSendMediaPayload | Message data
+data = OpenapiClient::SendMediaPayload.new({media_data: OpenapiClient::FileUpload.new({direct_path: 'direct_path_example', file_enc_sha256: [37], file_length: 37, file_sha256: [37], media_key: [37], mime_type: 'mime_type_example', url: 'url_example'}), media_type: 'media_type_example', to: 'to_example'}) # SendMediaPayload | Message data
 
 begin
   # Send a media message.
@@ -733,7 +661,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_media_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_media_post_with_http_info(instance_key, data)
 
 ```ruby
 begin
@@ -741,7 +669,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_media_post_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_media_post_with_http_info: #{e}"
 end
@@ -752,11 +680,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsSendMediaPayload**](StructsSendMediaPayload.md) | Message data |  |
+| **data** | [**SendMediaPayload**](SendMediaPayload.md) | Message data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -770,11 +698,11 @@ end
 
 ## instances_instance_key_send_poll_post
 
-> <MainAPIResponse> instances_instance_key_send_poll_post(instance_key, data)
+> <APIResponse> instances_instance_key_send_poll_post(instance_key, data)
 
-Send a Poll message with media.
+Send a Poll message.
 
-Sends an interactive poll message with a media header to the given user. The poll message is a new feature that is currently in beta.
+Sends an interactive poll message to the given user. The poll message is a new feature that is currently in beta.
 
 ### Examples
 
@@ -791,10 +719,10 @@ end
 
 api_instance = OpenapiClient::MessageSendingApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsPollMessagePayload.new({options: ['options_example'], selectable_options_count: 37, title: 'title_example', to: 'to_example'}) # StructsPollMessagePayload | Message data
+data = OpenapiClient::PollMessagePayload.new({options: ['options_example'], selectable_options_count: 37, title: 'title_example', to: 'to_example'}) # PollMessagePayload | Message data
 
 begin
-  # Send a Poll message with media.
+  # Send a Poll message.
   result = api_instance.instances_instance_key_send_poll_post(instance_key, data)
   p result
 rescue OpenapiClient::ApiError => e
@@ -806,15 +734,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_poll_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_poll_post_with_http_info(instance_key, data)
 
 ```ruby
 begin
-  # Send a Poll message with media.
+  # Send a Poll message.
   data, status_code, headers = api_instance.instances_instance_key_send_poll_post_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_poll_post_with_http_info: #{e}"
 end
@@ -825,11 +753,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsPollMessagePayload**](StructsPollMessagePayload.md) | Message data |  |
+| **data** | [**PollMessagePayload**](PollMessagePayload.md) | Message data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -843,7 +771,7 @@ end
 
 ## instances_instance_key_send_template_media_post
 
-> <MainAPIResponse> instances_instance_key_send_template_media_post(instance_key, data)
+> <APIResponse> instances_instance_key_send_template_media_post(instance_key, data)
 
 Send a template message with media.
 
@@ -864,7 +792,7 @@ end
 
 api_instance = OpenapiClient::MessageSendingApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsTemplateButtonWithMediaPayload.new({buttons: [OpenapiClient::StructsTemplateButton.new({title: 'title_example', type: 'type_example'})], media: OpenapiClient::StructsFileUpload.new({direct_path: 'direct_path_example', file_enc_sha256: [37], file_length: 37, file_sha256: [37], media_key: [37], mime_type: 'mime_type_example', url: 'url_example'}), to: 'to_example'}) # StructsTemplateButtonWithMediaPayload | Message data
+data = OpenapiClient::TemplateButtonWithMediaPayload.new({buttons: [OpenapiClient::TemplateButton.new({title: 'title_example', type: 'type_example'})], media: OpenapiClient::FileUpload.new({direct_path: 'direct_path_example', file_enc_sha256: [37], file_length: 37, file_sha256: [37], media_key: [37], mime_type: 'mime_type_example', url: 'url_example'}), to: 'to_example'}) # TemplateButtonWithMediaPayload | Message data
 
 begin
   # Send a template message with media.
@@ -879,7 +807,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_template_media_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_template_media_post_with_http_info(instance_key, data)
 
 ```ruby
 begin
@@ -887,7 +815,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_template_media_post_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_template_media_post_with_http_info: #{e}"
 end
@@ -898,11 +826,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsTemplateButtonWithMediaPayload**](StructsTemplateButtonWithMediaPayload.md) | Message data |  |
+| **data** | [**TemplateButtonWithMediaPayload**](TemplateButtonWithMediaPayload.md) | Message data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -916,7 +844,7 @@ end
 
 ## instances_instance_key_send_template_post
 
-> <MainAPIResponse> instances_instance_key_send_template_post(instance_key, data)
+> <APIResponse> instances_instance_key_send_template_post(instance_key, data)
 
 Send a template message.
 
@@ -937,7 +865,7 @@ end
 
 api_instance = OpenapiClient::MessageSendingApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsTemplateButtonPayload.new({buttons: [OpenapiClient::StructsTemplateButton.new({title: 'title_example', type: 'type_example'})], to: 'to_example'}) # StructsTemplateButtonPayload | Message data
+data = OpenapiClient::TemplateButtonPayload.new({buttons: [OpenapiClient::TemplateButton.new({title: 'title_example', type: 'type_example'})], to: 'to_example'}) # TemplateButtonPayload | Message data
 
 begin
   # Send a template message.
@@ -952,7 +880,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_template_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_template_post_with_http_info(instance_key, data)
 
 ```ruby
 begin
@@ -960,7 +888,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_template_post_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_template_post_with_http_info: #{e}"
 end
@@ -971,11 +899,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsTemplateButtonPayload**](StructsTemplateButtonPayload.md) | Message data |  |
+| **data** | [**TemplateButtonPayload**](TemplateButtonPayload.md) | Message data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -989,7 +917,7 @@ end
 
 ## instances_instance_key_send_text_post
 
-> <MainAPIResponse> instances_instance_key_send_text_post(instance_key, data)
+> <APIResponse> instances_instance_key_send_text_post(instance_key, data)
 
 Send a text message.
 
@@ -1010,7 +938,7 @@ end
 
 api_instance = OpenapiClient::MessageSendingApi.new
 instance_key = 'instance_key_example' # String | Instance key
-data = OpenapiClient::StructsTextMessage.new({text: 'text_example', to: 'to_example'}) # StructsTextMessage | Message data
+data = OpenapiClient::TextMessage.new({text: 'text_example', to: 'to_example'}) # TextMessage | Message data
 
 begin
   # Send a text message.
@@ -1025,7 +953,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_text_post_with_http_info(instance_key, data)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_text_post_with_http_info(instance_key, data)
 
 ```ruby
 begin
@@ -1033,7 +961,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_text_post_with_http_info(instance_key, data)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_text_post_with_http_info: #{e}"
 end
@@ -1044,11 +972,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
-| **data** | [**StructsTextMessage**](StructsTextMessage.md) | Message data |  |
+| **data** | [**TextMessage**](TextMessage.md) | Message data |  |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -1062,7 +990,7 @@ end
 
 ## instances_instance_key_send_upload_post
 
-> <MainAPIResponse> instances_instance_key_send_upload_post(instance_key, type, instances_instance_key_send_upload_post_request)
+> <APIResponse> instances_instance_key_send_upload_post(instance_key, type, instances_instance_key_send_upload_post_request)
 
 Upload media.
 
@@ -1099,7 +1027,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_upload_post_with_http_info(instance_key, type, instances_instance_key_send_upload_post_request)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_upload_post_with_http_info(instance_key, type, instances_instance_key_send_upload_post_request)
 
 ```ruby
 begin
@@ -1107,7 +1035,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_upload_post_with_http_info(instance_key, type, instances_instance_key_send_upload_post_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_upload_post_with_http_info: #{e}"
 end
@@ -1123,7 +1051,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -1137,7 +1065,7 @@ end
 
 ## instances_instance_key_send_video_post
 
-> <MainAPIResponse> instances_instance_key_send_video_post(instance_key, to, instances_instance_key_send_video_post_request, opts)
+> <APIResponse> instances_instance_key_send_video_post(instance_key, to, instances_instance_key_send_video_post_request, opts)
 
 Send raw video.
 
@@ -1177,7 +1105,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MainAPIResponse>, Integer, Hash)> instances_instance_key_send_video_post_with_http_info(instance_key, to, instances_instance_key_send_video_post_request, opts)
+> <Array(<APIResponse>, Integer, Hash)> instances_instance_key_send_video_post_with_http_info(instance_key, to, instances_instance_key_send_video_post_request, opts)
 
 ```ruby
 begin
@@ -1185,7 +1113,7 @@ begin
   data, status_code, headers = api_instance.instances_instance_key_send_video_post_with_http_info(instance_key, to, instances_instance_key_send_video_post_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MainAPIResponse>
+  p data # => <APIResponse>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->instances_instance_key_send_video_post_with_http_info: #{e}"
 end
@@ -1202,7 +1130,7 @@ end
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
