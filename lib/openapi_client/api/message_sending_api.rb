@@ -409,16 +409,90 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Send a group invite message
+    # Sends a group invite message to the specified number. Don't include \"https://chat.whatsapp.com/\" in the invite code.
+    # @param instance_key [String] Instance key
+    # @param data [GroupInviteMessagePayload] Message data
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def send_group_invite(instance_key, data, opts = {})
+      data, _status_code, _headers = send_group_invite_with_http_info(instance_key, data, opts)
+      data
+    end
+
+    # Send a group invite message
+    # Sends a group invite message to the specified number. Don&#39;t include \&quot;https://chat.whatsapp.com/\&quot; in the invite code.
+    # @param instance_key [String] Instance key
+    # @param data [GroupInviteMessagePayload] Message data
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def send_group_invite_with_http_info(instance_key, data, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_group_invite ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.send_group_invite"
+      end
+      # verify the required parameter 'data' is set
+      if @api_client.config.client_side_validation && data.nil?
+        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.send_group_invite"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/send/group-invite'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"MessageSendingApi.send_group_invite",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MessageSendingApi#send_group_invite\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Send raw image.
     # Sends a image message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
     # @param instance_key [String] Instance key
     # @param to [String] The recipient&#39;s number
-    # @param send_image_request [SendImageRequest] 
+    # @param update_profile_pic_request [UpdateProfilePicRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
     # @return [APIResponse]
-    def send_image(instance_key, to, send_image_request, opts = {})
-      data, _status_code, _headers = send_image_with_http_info(instance_key, to, send_image_request, opts)
+    def send_image(instance_key, to, update_profile_pic_request, opts = {})
+      data, _status_code, _headers = send_image_with_http_info(instance_key, to, update_profile_pic_request, opts)
       data
     end
 
@@ -426,11 +500,11 @@ module OpenapiClient
     # Sends a image message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
     # @param instance_key [String] Instance key
     # @param to [String] The recipient&#39;s number
-    # @param send_image_request [SendImageRequest] 
+    # @param update_profile_pic_request [UpdateProfilePicRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :caption Attached caption
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def send_image_with_http_info(instance_key, to, send_image_request, opts = {})
+    def send_image_with_http_info(instance_key, to, update_profile_pic_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageSendingApi.send_image ...'
       end
@@ -442,9 +516,9 @@ module OpenapiClient
       if @api_client.config.client_side_validation && to.nil?
         fail ArgumentError, "Missing the required parameter 'to' when calling MessageSendingApi.send_image"
       end
-      # verify the required parameter 'send_image_request' is set
-      if @api_client.config.client_side_validation && send_image_request.nil?
-        fail ArgumentError, "Missing the required parameter 'send_image_request' when calling MessageSendingApi.send_image"
+      # verify the required parameter 'update_profile_pic_request' is set
+      if @api_client.config.client_side_validation && update_profile_pic_request.nil?
+        fail ArgumentError, "Missing the required parameter 'update_profile_pic_request' when calling MessageSendingApi.send_image"
       end
       # resource path
       local_var_path = '/instances/{instance_key}/send/image'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
@@ -468,7 +542,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(send_image_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(update_profile_pic_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'APIResponse'

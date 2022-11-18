@@ -81,5 +81,79 @@ module OpenapiClient
       end
       return data, status_code, headers
     end
+
+    # Send a payment request.
+    # Sends an payment request to a user. Feature is still in beta.
+    # @param instance_key [String] Instance key
+    # @param data [PaymentRequestPayload] Data
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def send_payment_request(instance_key, data, opts = {})
+      data, _status_code, _headers = send_payment_request_with_http_info(instance_key, data, opts)
+      data
+    end
+
+    # Send a payment request.
+    # Sends an payment request to a user. Feature is still in beta.
+    # @param instance_key [String] Instance key
+    # @param data [PaymentRequestPayload] Data
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def send_payment_request_with_http_info(instance_key, data, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BusinessManagementApi.send_payment_request ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling BusinessManagementApi.send_payment_request"
+      end
+      # verify the required parameter 'data' is set
+      if @api_client.config.client_side_validation && data.nil?
+        fail ArgumentError, "Missing the required parameter 'data' when calling BusinessManagementApi.send_payment_request"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/business/payment-request'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"BusinessManagementApi.send_payment_request",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BusinessManagementApi#send_payment_request\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

@@ -9,6 +9,7 @@ All URIs are relative to */api*
 | [**send_button_with_media**](MessageSendingApi.md#send_button_with_media) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header. |
 | [**send_contact**](MessageSendingApi.md#send_contact) | **POST** /instances/{instance_key}/send/contact | Send a contact message. |
 | [**send_document**](MessageSendingApi.md#send_document) | **POST** /instances/{instance_key}/send/document | Send raw document. |
+| [**send_group_invite**](MessageSendingApi.md#send_group_invite) | **POST** /instances/{instance_key}/send/group-invite | Send a group invite message |
 | [**send_image**](MessageSendingApi.md#send_image) | **POST** /instances/{instance_key}/send/image | Send raw image. |
 | [**send_list_message**](MessageSendingApi.md#send_list_message) | **POST** /instances/{instance_key}/send/list | Send a List message. |
 | [**send_location**](MessageSendingApi.md#send_location) | **POST** /instances/{instance_key}/send/location | Send a location message. |
@@ -398,9 +399,82 @@ end
 - **Accept**: */*
 
 
+## send_group_invite
+
+> <APIResponse> send_group_invite(instance_key, data)
+
+Send a group invite message
+
+Sends a group invite message to the specified number. Don't include \"https://chat.whatsapp.com/\" in the invite code.
+
+### Examples
+
+```ruby
+require 'time'
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['ApiKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+end
+
+api_instance = OpenapiClient::MessageSendingApi.new
+instance_key = 'instance_key_example' # String | Instance key
+data = OpenapiClient::GroupInviteMessagePayload.new # GroupInviteMessagePayload | Message data
+
+begin
+  # Send a group invite message
+  result = api_instance.send_group_invite(instance_key, data)
+  p result
+rescue OpenapiClient::ApiError => e
+  puts "Error when calling MessageSendingApi->send_group_invite: #{e}"
+end
+```
+
+#### Using the send_group_invite_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<APIResponse>, Integer, Hash)> send_group_invite_with_http_info(instance_key, data)
+
+```ruby
+begin
+  # Send a group invite message
+  data, status_code, headers = api_instance.send_group_invite_with_http_info(instance_key, data)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <APIResponse>
+rescue OpenapiClient::ApiError => e
+  puts "Error when calling MessageSendingApi->send_group_invite_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **instance_key** | **String** | Instance key |  |
+| **data** | [**GroupInviteMessagePayload**](GroupInviteMessagePayload.md) | Message data |  |
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: */*
+
+
 ## send_image
 
-> <APIResponse> send_image(instance_key, to, send_image_request, opts)
+> <APIResponse> send_image(instance_key, to, update_profile_pic_request, opts)
 
 Send raw image.
 
@@ -422,14 +496,14 @@ end
 api_instance = OpenapiClient::MessageSendingApi.new
 instance_key = 'instance_key_example' # String | Instance key
 to = 'to_example' # String | The recipient's number
-send_image_request = OpenapiClient::SendImageRequest.new({file: File.new('/path/to/some/file')}) # SendImageRequest | 
+update_profile_pic_request = OpenapiClient::UpdateProfilePicRequest.new({file: File.new('/path/to/some/file')}) # UpdateProfilePicRequest | 
 opts = {
   caption: 'caption_example' # String | Attached caption
 }
 
 begin
   # Send raw image.
-  result = api_instance.send_image(instance_key, to, send_image_request, opts)
+  result = api_instance.send_image(instance_key, to, update_profile_pic_request, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MessageSendingApi->send_image: #{e}"
@@ -440,12 +514,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<APIResponse>, Integer, Hash)> send_image_with_http_info(instance_key, to, send_image_request, opts)
+> <Array(<APIResponse>, Integer, Hash)> send_image_with_http_info(instance_key, to, update_profile_pic_request, opts)
 
 ```ruby
 begin
   # Send raw image.
-  data, status_code, headers = api_instance.send_image_with_http_info(instance_key, to, send_image_request, opts)
+  data, status_code, headers = api_instance.send_image_with_http_info(instance_key, to, update_profile_pic_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <APIResponse>
@@ -460,7 +534,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **instance_key** | **String** | Instance key |  |
 | **to** | **String** | The recipient&#39;s number |  |
-| **send_image_request** | [**SendImageRequest**](SendImageRequest.md) |  |  |
+| **update_profile_pic_request** | [**UpdateProfilePicRequest**](UpdateProfilePicRequest.md) |  |  |
 | **caption** | **String** | Attached caption | [optional] |
 
 ### Return type

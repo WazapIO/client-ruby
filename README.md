@@ -84,14 +84,17 @@ All URIs are relative to */api*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OpenapiClient::BusinessManagementApi* | [**fetch_catlog**](docs/BusinessManagementApi.md#fetch_catlog) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog.
+*OpenapiClient::BusinessManagementApi* | [**send_payment_request**](docs/BusinessManagementApi.md#send_payment_request) | **POST** /instances/{instance_key}/business/payment-request | Send a payment request.
 *OpenapiClient::GroupManagementApi* | [**add_participant**](docs/GroupManagementApi.md#add_participant) | **POST** /instances/{instance_key}/groups/{group_id}/participants/add | Add participant.
 *OpenapiClient::GroupManagementApi* | [**create_group**](docs/GroupManagementApi.md#create_group) | **POST** /instances/{instance_key}/groups/create | Create group.
 *OpenapiClient::GroupManagementApi* | [**demote_participant**](docs/GroupManagementApi.md#demote_participant) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/demote | Demote participant.
 *OpenapiClient::GroupManagementApi* | [**get_admin_groups**](docs/GroupManagementApi.md#get_admin_groups) | **GET** /instances/{instance_key}/groups/admin | Get admin groups.
 *OpenapiClient::GroupManagementApi* | [**get_all_groups**](docs/GroupManagementApi.md#get_all_groups) | **GET** /instances/{instance_key}/groups/ | Get all groups.
+*OpenapiClient::GroupManagementApi* | [**get_all_participants**](docs/GroupManagementApi.md#get_all_participants) | **GET** /instances/{instance_key}/groups/{group_id}/participants | Get all participants.
 *OpenapiClient::GroupManagementApi* | [**get_group**](docs/GroupManagementApi.md#get_group) | **GET** /instances/{instance_key}/groups/{group_id} | Get group.
 *OpenapiClient::GroupManagementApi* | [**get_group_from_invite_link**](docs/GroupManagementApi.md#get_group_from_invite_link) | **GET** /instances/{instance_key}/groups/invite-info | Get group from invite link.
 *OpenapiClient::GroupManagementApi* | [**get_group_invite_code**](docs/GroupManagementApi.md#get_group_invite_code) | **GET** /instances/{instance_key}/groups/{group_id}/invite-code | Get group invite code.
+*OpenapiClient::GroupManagementApi* | [**join_group_with_link**](docs/GroupManagementApi.md#join_group_with_link) | **GET** /instances/{instance_key}/groups/join | Join group with invite code.
 *OpenapiClient::GroupManagementApi* | [**leave_group**](docs/GroupManagementApi.md#leave_group) | **DELETE** /instances/{instance_key}/groups/{group_id}/ | Leaves the group.
 *OpenapiClient::GroupManagementApi* | [**promote_participant**](docs/GroupManagementApi.md#promote_participant) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/promote | Promote participant.
 *OpenapiClient::GroupManagementApi* | [**remove_participant**](docs/GroupManagementApi.md#remove_participant) | **DELETE** /instances/{instance_key}/groups/{group_id}/participants/remove | Remove participant.
@@ -113,6 +116,7 @@ Class | Method | HTTP request | Description
 *OpenapiClient::MessageSendingApi* | [**send_button_with_media**](docs/MessageSendingApi.md#send_button_with_media) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header.
 *OpenapiClient::MessageSendingApi* | [**send_contact**](docs/MessageSendingApi.md#send_contact) | **POST** /instances/{instance_key}/send/contact | Send a contact message.
 *OpenapiClient::MessageSendingApi* | [**send_document**](docs/MessageSendingApi.md#send_document) | **POST** /instances/{instance_key}/send/document | Send raw document.
+*OpenapiClient::MessageSendingApi* | [**send_group_invite**](docs/MessageSendingApi.md#send_group_invite) | **POST** /instances/{instance_key}/send/group-invite | Send a group invite message
 *OpenapiClient::MessageSendingApi* | [**send_image**](docs/MessageSendingApi.md#send_image) | **POST** /instances/{instance_key}/send/image | Send raw image.
 *OpenapiClient::MessageSendingApi* | [**send_list_message**](docs/MessageSendingApi.md#send_list_message) | **POST** /instances/{instance_key}/send/list | Send a List message.
 *OpenapiClient::MessageSendingApi* | [**send_location**](docs/MessageSendingApi.md#send_location) | **POST** /instances/{instance_key}/send/location | Send a location message.
@@ -123,8 +127,11 @@ Class | Method | HTTP request | Description
 *OpenapiClient::MessageSendingApi* | [**send_text_message**](docs/MessageSendingApi.md#send_text_message) | **POST** /instances/{instance_key}/send/text | Send a text message.
 *OpenapiClient::MessageSendingApi* | [**send_video**](docs/MessageSendingApi.md#send_video) | **POST** /instances/{instance_key}/send/video | Send raw video.
 *OpenapiClient::MessageSendingApi* | [**upload_media**](docs/MessageSendingApi.md#upload_media) | **POST** /instances/{instance_key}/send/upload | Upload media.
+*OpenapiClient::MiscellaneousApi* | [**download_media**](docs/MiscellaneousApi.md#download_media) | **POST** /instances/{instance_key}/misc/download | Download media
 *OpenapiClient::MiscellaneousApi* | [**get_profile_pic**](docs/MiscellaneousApi.md#get_profile_pic) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic.
 *OpenapiClient::MiscellaneousApi* | [**get_users_info**](docs/MiscellaneousApi.md#get_users_info) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info.
+*OpenapiClient::MiscellaneousApi* | [**set_chat_presence**](docs/MiscellaneousApi.md#set_chat_presence) | **POST** /instances/{instance_key}/misc/chat-presence | Set chat presence
+*OpenapiClient::MiscellaneousApi* | [**update_profile_pic**](docs/MiscellaneousApi.md#update_profile_pic) | **PUT** /instances/{instance_key}/misc/profile-pic | Update profile picture
 
 
 ## Documentation for Models
@@ -136,6 +143,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::ContactMessagePayloadVcard](docs/ContactMessagePayloadVcard.md)
  - [OpenapiClient::FileUpload](docs/FileUpload.md)
  - [OpenapiClient::GroupCreatePayload](docs/GroupCreatePayload.md)
+ - [OpenapiClient::GroupInviteMessagePayload](docs/GroupInviteMessagePayload.md)
  - [OpenapiClient::GroupUpdateDescriptionPayload](docs/GroupUpdateDescriptionPayload.md)
  - [OpenapiClient::GroupUpdateNamePayload](docs/GroupUpdateNamePayload.md)
  - [OpenapiClient::GroupUpdateParticipantsPayload](docs/GroupUpdateParticipantsPayload.md)
@@ -144,11 +152,11 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::ListSection](docs/ListSection.md)
  - [OpenapiClient::LocationMessagePayload](docs/LocationMessagePayload.md)
  - [OpenapiClient::LocationMessagePayloadLocation](docs/LocationMessagePayloadLocation.md)
+ - [OpenapiClient::PaymentRequestPayload](docs/PaymentRequestPayload.md)
  - [OpenapiClient::PollMessagePayload](docs/PollMessagePayload.md)
  - [OpenapiClient::ReplyButton](docs/ReplyButton.md)
  - [OpenapiClient::SendAudioRequest](docs/SendAudioRequest.md)
  - [OpenapiClient::SendDocumentRequest](docs/SendDocumentRequest.md)
- - [OpenapiClient::SendImageRequest](docs/SendImageRequest.md)
  - [OpenapiClient::SendMediaPayload](docs/SendMediaPayload.md)
  - [OpenapiClient::SendVideoRequest](docs/SendVideoRequest.md)
  - [OpenapiClient::SetGroupPictureRequest](docs/SetGroupPictureRequest.md)
@@ -156,6 +164,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::TemplateButtonPayload](docs/TemplateButtonPayload.md)
  - [OpenapiClient::TemplateButtonWithMediaPayload](docs/TemplateButtonWithMediaPayload.md)
  - [OpenapiClient::TextMessage](docs/TextMessage.md)
+ - [OpenapiClient::UpdateProfilePicRequest](docs/UpdateProfilePicRequest.md)
  - [OpenapiClient::UploadMediaRequest](docs/UploadMediaRequest.md)
  - [OpenapiClient::UserInfoPayload](docs/UserInfoPayload.md)
  - [OpenapiClient::WebhookPayload](docs/WebhookPayload.md)

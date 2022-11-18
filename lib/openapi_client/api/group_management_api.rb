@@ -386,6 +386,75 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Get all participants.
+    # Returns all participants of the group.
+    # @param instance_key [String] Instance key
+    # @param group_id [String] Group id of the group
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def get_all_participants(instance_key, group_id, opts = {})
+      data, _status_code, _headers = get_all_participants_with_http_info(instance_key, group_id, opts)
+      data
+    end
+
+    # Get all participants.
+    # Returns all participants of the group.
+    # @param instance_key [String] Instance key
+    # @param group_id [String] Group id of the group
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def get_all_participants_with_http_info(instance_key, group_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.get_all_participants ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.get_all_participants"
+      end
+      # verify the required parameter 'group_id' is set
+      if @api_client.config.client_side_validation && group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupManagementApi.get_all_participants"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/{group_id}/participants'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s)).sub('{' + 'group_id' + '}', CGI.escape(group_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.get_all_participants",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#get_all_participants\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get group.
     # Fetches the group data.
     # @param instance_key [String] Instance key
@@ -590,6 +659,76 @@ module OpenapiClient
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GroupManagementApi#get_group_invite_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Join group with invite code.
+    # Joins a group with group invite link. An invite link is a link that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode} You have to put invite_code in the url of the request. The invite code is the part after https://chat.whatsapp.com/ For example, if the invite link is https://chat.whatsapp.com/dsfsf34r3d3dsds, then the invite code is `dsfsf34r3d3dsds“
+    # @param instance_key [String] Instance key
+    # @param invite_code [String] The invite code of group you want to join
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def join_group_with_link(instance_key, invite_code, opts = {})
+      data, _status_code, _headers = join_group_with_link_with_http_info(instance_key, invite_code, opts)
+      data
+    end
+
+    # Join group with invite code.
+    # Joins a group with group invite link. An invite link is a link that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode} You have to put invite_code in the url of the request. The invite code is the part after https://chat.whatsapp.com/ For example, if the invite link is https://chat.whatsapp.com/dsfsf34r3d3dsds, then the invite code is &#x60;dsfsf34r3d3dsds“
+    # @param instance_key [String] Instance key
+    # @param invite_code [String] The invite code of group you want to join
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def join_group_with_link_with_http_info(instance_key, invite_code, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GroupManagementApi.join_group_with_link ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling GroupManagementApi.join_group_with_link"
+      end
+      # verify the required parameter 'invite_code' is set
+      if @api_client.config.client_side_validation && invite_code.nil?
+        fail ArgumentError, "Missing the required parameter 'invite_code' when calling GroupManagementApi.join_group_with_link"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/groups/join'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'invite_code'] = invite_code
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"GroupManagementApi.join_group_with_link",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GroupManagementApi#join_group_with_link\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

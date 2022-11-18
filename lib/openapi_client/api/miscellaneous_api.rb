@@ -19,6 +19,95 @@ module OpenapiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Download media
+    # Downloads the media from the given media keys.
+    # @param instance_key [String] Instance key
+    # @param file_type [String] File type
+    # @param data [FileUpload] Media data
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :response_type Response type (file, base64)
+    # @return [APIResponse]
+    def download_media(instance_key, file_type, data, opts = {})
+      data, _status_code, _headers = download_media_with_http_info(instance_key, file_type, data, opts)
+      data
+    end
+
+    # Download media
+    # Downloads the media from the given media keys.
+    # @param instance_key [String] Instance key
+    # @param file_type [String] File type
+    # @param data [FileUpload] Media data
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :response_type Response type (file, base64)
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def download_media_with_http_info(instance_key, file_type, data, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MiscellaneousApi.download_media ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MiscellaneousApi.download_media"
+      end
+      # verify the required parameter 'file_type' is set
+      if @api_client.config.client_side_validation && file_type.nil?
+        fail ArgumentError, "Missing the required parameter 'file_type' when calling MiscellaneousApi.download_media"
+      end
+      # verify enum value
+      allowable_values = ["image", "video", "audio", "document"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(file_type)
+        fail ArgumentError, "invalid value for \"file_type\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'data' is set
+      if @api_client.config.client_side_validation && data.nil?
+        fail ArgumentError, "Missing the required parameter 'data' when calling MiscellaneousApi.download_media"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/misc/download'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'file_type'] = file_type
+      query_params[:'response_type'] = opts[:'response_type'] if !opts[:'response_type'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"MiscellaneousApi.download_media",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MiscellaneousApi#download_media\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get profile pic.
     # Returns the profile pic of the given user.
     # @param instance_key [String] Instance key
@@ -159,6 +248,157 @@ module OpenapiClient
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MiscellaneousApi#get_users_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Set chat presence
+    # Sets the presence of the given chat. (Typing, Recording, Paused) Options: typing, recording, paused
+    # @param instance_key [String] Instance key
+    # @param jid [String] JID
+    # @param presence [String] Presence
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def set_chat_presence(instance_key, jid, presence, opts = {})
+      data, _status_code, _headers = set_chat_presence_with_http_info(instance_key, jid, presence, opts)
+      data
+    end
+
+    # Set chat presence
+    # Sets the presence of the given chat. (Typing, Recording, Paused) Options: typing, recording, paused
+    # @param instance_key [String] Instance key
+    # @param jid [String] JID
+    # @param presence [String] Presence
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def set_chat_presence_with_http_info(instance_key, jid, presence, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MiscellaneousApi.set_chat_presence ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MiscellaneousApi.set_chat_presence"
+      end
+      # verify the required parameter 'jid' is set
+      if @api_client.config.client_side_validation && jid.nil?
+        fail ArgumentError, "Missing the required parameter 'jid' when calling MiscellaneousApi.set_chat_presence"
+      end
+      # verify the required parameter 'presence' is set
+      if @api_client.config.client_side_validation && presence.nil?
+        fail ArgumentError, "Missing the required parameter 'presence' when calling MiscellaneousApi.set_chat_presence"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/misc/chat-presence'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'jid'] = jid
+      query_params[:'presence'] = presence
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"MiscellaneousApi.set_chat_presence",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MiscellaneousApi#set_chat_presence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update profile picture
+    # Changes the profile pic of the current logged in user.
+    # @param instance_key [String] Instance key
+    # @param update_profile_pic_request [UpdateProfilePicRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def update_profile_pic(instance_key, update_profile_pic_request, opts = {})
+      data, _status_code, _headers = update_profile_pic_with_http_info(instance_key, update_profile_pic_request, opts)
+      data
+    end
+
+    # Update profile picture
+    # Changes the profile pic of the current logged in user.
+    # @param instance_key [String] Instance key
+    # @param update_profile_pic_request [UpdateProfilePicRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def update_profile_pic_with_http_info(instance_key, update_profile_pic_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MiscellaneousApi.update_profile_pic ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MiscellaneousApi.update_profile_pic"
+      end
+      # verify the required parameter 'update_profile_pic_request' is set
+      if @api_client.config.client_side_validation && update_profile_pic_request.nil?
+        fail ArgumentError, "Missing the required parameter 'update_profile_pic_request' when calling MiscellaneousApi.update_profile_pic"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/misc/profile-pic'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(update_profile_pic_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"MiscellaneousApi.update_profile_pic",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MiscellaneousApi#update_profile_pic\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
