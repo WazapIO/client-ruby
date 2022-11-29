@@ -127,6 +127,7 @@ Class | Method | HTTP request | Description
 *OpenapiClient::MessageSendingApi* | [**send_text_message**](docs/MessageSendingApi.md#send_text_message) | **POST** /instances/{instance_key}/send/text | Send a text message.
 *OpenapiClient::MessageSendingApi* | [**send_video**](docs/MessageSendingApi.md#send_video) | **POST** /instances/{instance_key}/send/video | Send raw video.
 *OpenapiClient::MessageSendingApi* | [**upload_media**](docs/MessageSendingApi.md#upload_media) | **POST** /instances/{instance_key}/send/upload | Upload media.
+*OpenapiClient::MessageSendingApi* | [**upload_media_from_url**](docs/MessageSendingApi.md#upload_media_from_url) | **POST** /instances/{instance_key}/send/upload-url | Upload media from url.
 *OpenapiClient::MiscellaneousApi* | [**download_media**](docs/MiscellaneousApi.md#download_media) | **POST** /instances/{instance_key}/misc/download | Download media
 *OpenapiClient::MiscellaneousApi* | [**get_profile_pic**](docs/MiscellaneousApi.md#get_profile_pic) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic.
 *OpenapiClient::MiscellaneousApi* | [**get_users_info**](docs/MiscellaneousApi.md#get_users_info) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info.
@@ -166,6 +167,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::TextMessage](docs/TextMessage.md)
  - [OpenapiClient::UpdateProfilePicRequest](docs/UpdateProfilePicRequest.md)
  - [OpenapiClient::UploadMediaRequest](docs/UploadMediaRequest.md)
+ - [OpenapiClient::UrlMediaUploadPayload](docs/UrlMediaUploadPayload.md)
  - [OpenapiClient::UserInfoPayload](docs/UserInfoPayload.md)
  - [OpenapiClient::WebhookPayload](docs/WebhookPayload.md)
 

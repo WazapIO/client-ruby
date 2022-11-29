@@ -41,6 +41,7 @@ docs/TemplateButtonWithMediaPayload.md
 docs/TextMessage.md
 docs/UpdateProfilePicRequest.md
 docs/UploadMediaRequest.md
+docs/UrlMediaUploadPayload.md
 docs/UserInfoPayload.md
 docs/WebhookPayload.md
 git_push.sh
@@ -83,13 +84,12 @@ lib/openapi_client/models/template_button_with_media_payload.rb
 lib/openapi_client/models/text_message.rb
 lib/openapi_client/models/update_profile_pic_request.rb
 lib/openapi_client/models/upload_media_request.rb
+lib/openapi_client/models/url_media_upload_payload.rb
 lib/openapi_client/models/user_info_payload.rb
 lib/openapi_client/models/webhook_payload.rb
 lib/openapi_client/version.rb
 openapi_client.gemspec
 spec/api_client_spec.rb
 spec/configuration_spec.rb
-spec/models/group_invite_message_payload_spec.rb
-spec/models/payment_request_payload_spec.rb
-spec/models/update_profile_pic_request_spec.rb
+spec/models/url_media_upload_payload_spec.rb
 spec/spec_helper.rb

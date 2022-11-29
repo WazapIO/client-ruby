@@ -20,6 +20,7 @@ All URIs are relative to */api*
 | [**send_text_message**](MessageSendingApi.md#send_text_message) | **POST** /instances/{instance_key}/send/text | Send a text message. |
 | [**send_video**](MessageSendingApi.md#send_video) | **POST** /instances/{instance_key}/send/video | Send raw video. |
 | [**upload_media**](MessageSendingApi.md#upload_media) | **POST** /instances/{instance_key}/send/upload | Upload media. |
+| [**upload_media_from_url**](MessageSendingApi.md#upload_media_from_url) | **POST** /instances/{instance_key}/send/upload-url | Upload media from url. |
 
 
 ## send_audio
@@ -1201,6 +1202,81 @@ end
 | **instance_key** | **String** | Instance key |  |
 | **type** | **String** | Media type |  |
 | **upload_media_request** | [**UploadMediaRequest**](UploadMediaRequest.md) |  |  |
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: */*
+
+
+## upload_media_from_url
+
+> <APIResponse> upload_media_from_url(instance_key, type, data)
+
+Upload media from url.
+
+Uploads media from a url to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+
+### Examples
+
+```ruby
+require 'time'
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['ApiKeyAuth'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+end
+
+api_instance = OpenapiClient::MessageSendingApi.new
+instance_key = 'instance_key_example' # String | Instance key
+type = 'image' # String | Media type
+data = OpenapiClient::UrlMediaUploadPayload.new # UrlMediaUploadPayload | Media data
+
+begin
+  # Upload media from url.
+  result = api_instance.upload_media_from_url(instance_key, type, data)
+  p result
+rescue OpenapiClient::ApiError => e
+  puts "Error when calling MessageSendingApi->upload_media_from_url: #{e}"
+end
+```
+
+#### Using the upload_media_from_url_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<APIResponse>, Integer, Hash)> upload_media_from_url_with_http_info(instance_key, type, data)
+
+```ruby
+begin
+  # Upload media from url.
+  data, status_code, headers = api_instance.upload_media_from_url_with_http_info(instance_key, type, data)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <APIResponse>
+rescue OpenapiClient::ApiError => e
+  puts "Error when calling MessageSendingApi->upload_media_from_url_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **instance_key** | **String** | Instance key |  |
+| **type** | **String** | Media type |  |
+| **data** | [**UrlMediaUploadPayload**](UrlMediaUploadPayload.md) | Media data |  |
 
 ### Return type
 

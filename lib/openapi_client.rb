@@ -47,6 +47,7 @@ require 'openapi_client/models/template_button_with_media_payload'
 require 'openapi_client/models/text_message'
 require 'openapi_client/models/update_profile_pic_request'
 require 'openapi_client/models/upload_media_request'
+require 'openapi_client/models/url_media_upload_payload'
 require 'openapi_client/models/user_info_payload'
 require 'openapi_client/models/webhook_payload'
 

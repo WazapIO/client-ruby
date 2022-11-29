@@ -1254,5 +1254,91 @@ module OpenapiClient
       end
       return data, status_code, headers
     end
+
+    # Upload media from url.
+    # Uploads media from a url to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+    # @param instance_key [String] Instance key
+    # @param type [String] Media type
+    # @param data [UrlMediaUploadPayload] Media data
+    # @param [Hash] opts the optional parameters
+    # @return [APIResponse]
+    def upload_media_from_url(instance_key, type, data, opts = {})
+      data, _status_code, _headers = upload_media_from_url_with_http_info(instance_key, type, data, opts)
+      data
+    end
+
+    # Upload media from url.
+    # Uploads media from a url to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+    # @param instance_key [String] Instance key
+    # @param type [String] Media type
+    # @param data [UrlMediaUploadPayload] Media data
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
+    def upload_media_from_url_with_http_info(instance_key, type, data, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MessageSendingApi.upload_media_from_url ...'
+      end
+      # verify the required parameter 'instance_key' is set
+      if @api_client.config.client_side_validation && instance_key.nil?
+        fail ArgumentError, "Missing the required parameter 'instance_key' when calling MessageSendingApi.upload_media_from_url"
+      end
+      # verify the required parameter 'type' is set
+      if @api_client.config.client_side_validation && type.nil?
+        fail ArgumentError, "Missing the required parameter 'type' when calling MessageSendingApi.upload_media_from_url"
+      end
+      # verify enum value
+      allowable_values = ["image", "video", "audio", "document"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'data' is set
+      if @api_client.config.client_side_validation && data.nil?
+        fail ArgumentError, "Missing the required parameter 'data' when calling MessageSendingApi.upload_media_from_url"
+      end
+      # resource path
+      local_var_path = '/instances/{instance_key}/send/upload-url'.sub('{' + 'instance_key' + '}', CGI.escape(instance_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'type'] = type
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'APIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"MessageSendingApi.upload_media_from_url",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MessageSendingApi#upload_media_from_url\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end
