@@ -5,7 +5,7 @@ All URIs are relative to */api*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**change_webhook_url**](InstanceApi.md#change_webhook_url) | **PUT** /instances/{instance_key}/webhook | Change Webhook url. |
-| [**create_instance**](InstanceApi.md#create_instance) | **GET** /instances/create | Creates a new instance key. |
+| [**create_instance**](InstanceApi.md#create_instance) | **POST** /instances/create | Creates a new instance key. |
 | [**delete_instance**](InstanceApi.md#delete_instance) | **DELETE** /instances/{instance_key}/delete | Delete Instance. |
 | [**get_contacts**](InstanceApi.md#get_contacts) | **GET** /instances/{instance_key}/contacts | Get contacts. |
 | [**get_instance**](InstanceApi.md#get_instance) | **GET** /instances/{instance_key}/ | Get Instance. |
@@ -89,7 +89,7 @@ end
 
 ## create_instance
 
-> <APIResponse> create_instance(opts)
+> <APIResponse> create_instance(data)
 
 Creates a new instance key.
 
@@ -109,13 +109,11 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::InstanceApi.new
-opts = {
-  instance_key: 'instance_key_example' # String | Insert instance key if you want to provide custom key
-}
+data = OpenapiClient::CreateInstancePayload.new # CreateInstancePayload | Instance data
 
 begin
   # Creates a new instance key.
-  result = api_instance.create_instance(opts)
+  result = api_instance.create_instance(data)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling InstanceApi->create_instance: #{e}"
@@ -126,12 +124,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<APIResponse>, Integer, Hash)> create_instance_with_http_info(opts)
+> <Array(<APIResponse>, Integer, Hash)> create_instance_with_http_info(data)
 
 ```ruby
 begin
   # Creates a new instance key.
-  data, status_code, headers = api_instance.create_instance_with_http_info(opts)
+  data, status_code, headers = api_instance.create_instance_with_http_info(data)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <APIResponse>
@@ -144,7 +142,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **instance_key** | **String** | Insert instance key if you want to provide custom key | [optional] |
+| **data** | [**CreateInstancePayload**](CreateInstancePayload.md) | Instance data |  |
 
 ### Return type
 
@@ -156,7 +154,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: */*
 
 

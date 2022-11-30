@@ -104,7 +104,7 @@ Class | Method | HTTP request | Description
 *OpenapiClient::GroupManagementApi* | [**set_group_name**](docs/GroupManagementApi.md#set_group_name) | **PUT** /instances/{instance_key}/groups/{group_id}/name | Set group name.
 *OpenapiClient::GroupManagementApi* | [**set_group_picture**](docs/GroupManagementApi.md#set_group_picture) | **PUT** /instances/{instance_key}/groups/{group_id}/profile-pic | Set group picture.
 *OpenapiClient::InstanceApi* | [**change_webhook_url**](docs/InstanceApi.md#change_webhook_url) | **PUT** /instances/{instance_key}/webhook | Change Webhook url.
-*OpenapiClient::InstanceApi* | [**create_instance**](docs/InstanceApi.md#create_instance) | **GET** /instances/create | Creates a new instance key.
+*OpenapiClient::InstanceApi* | [**create_instance**](docs/InstanceApi.md#create_instance) | **POST** /instances/create | Creates a new instance key.
 *OpenapiClient::InstanceApi* | [**delete_instance**](docs/InstanceApi.md#delete_instance) | **DELETE** /instances/{instance_key}/delete | Delete Instance.
 *OpenapiClient::InstanceApi* | [**get_contacts**](docs/InstanceApi.md#get_contacts) | **GET** /instances/{instance_key}/contacts | Get contacts.
 *OpenapiClient::InstanceApi* | [**get_instance**](docs/InstanceApi.md#get_instance) | **GET** /instances/{instance_key}/ | Get Instance.
@@ -142,6 +142,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::ButtonMessageWithMediaPayload](docs/ButtonMessageWithMediaPayload.md)
  - [OpenapiClient::ContactMessagePayload](docs/ContactMessagePayload.md)
  - [OpenapiClient::ContactMessagePayloadVcard](docs/ContactMessagePayloadVcard.md)
+ - [OpenapiClient::CreateInstancePayload](docs/CreateInstancePayload.md)
  - [OpenapiClient::FileUpload](docs/FileUpload.md)
  - [OpenapiClient::GroupCreatePayload](docs/GroupCreatePayload.md)
  - [OpenapiClient::GroupInviteMessagePayload](docs/GroupInviteMessagePayload.md)

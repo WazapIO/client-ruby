@@ -95,40 +95,48 @@ module OpenapiClient
 
     # Creates a new instance key.
     # This endpoint is used to create a new WhatsApp Web instance.
+    # @param data [CreateInstancePayload] Instance data
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :instance_key Insert instance key if you want to provide custom key
     # @return [APIResponse]
-    def create_instance(opts = {})
-      data, _status_code, _headers = create_instance_with_http_info(opts)
+    def create_instance(data, opts = {})
+      data, _status_code, _headers = create_instance_with_http_info(data, opts)
       data
     end
 
     # Creates a new instance key.
     # This endpoint is used to create a new WhatsApp Web instance.
+    # @param data [CreateInstancePayload] Instance data
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :instance_key Insert instance key if you want to provide custom key
     # @return [Array<(APIResponse, Integer, Hash)>] APIResponse data, response status code and response headers
-    def create_instance_with_http_info(opts = {})
+    def create_instance_with_http_info(data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstanceApi.create_instance ...'
+      end
+      # verify the required parameter 'data' is set
+      if @api_client.config.client_side_validation && data.nil?
+        fail ArgumentError, "Missing the required parameter 'data' when calling InstanceApi.create_instance"
       end
       # resource path
       local_var_path = '/instances/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'instance_key'] = opts[:'instance_key'] if !opts[:'instance_key'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body]
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(data)
 
       # return_type
       return_type = opts[:debug_return_type] || 'APIResponse'
@@ -146,7 +154,7 @@ module OpenapiClient
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: InstanceApi#create_instance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
